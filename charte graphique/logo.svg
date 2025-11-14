@@ -7,7 +7,7 @@
    viewBox="0 0 211.66666 105.83333"
    version="1.1"
    id="svg1"
-   inkscape:export-filename="grand_logo.png"
+   inkscape:export-filename="grand_logo_blanc.png"
    inkscape:export-xdpi="72"
    inkscape:export-ydpi="72"
    inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
@@ -31,7 +31,7 @@
      inkscape:antialias-rendering="true"
      showborder="true"
      inkscape:zoom="1.4841611"
-     inkscape:cx="391.46695"
+     inkscape:cx="391.46694"
      inkscape:cy="184.27919"
      inkscape:window-width="1920"
      inkscape:window-height="1051"
@@ -126,32 +126,27 @@
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="Calque 2">
-    <g
-       id="g1"
-       transform="matrix(3.0049269,0,0,3.0049269,21.434122,7.1442517)"
-       style="fill:#000000">
-      <text
-         id="text1-4"
-         xml:space="preserve"
-         transform="rotate(-16.04896)"
-         x="-4.1777272"
-         y="24.792238"
-         style="font-size:1.72381px;stroke-width:0.143651;fill:#000000"><tspan
-           id="tspan1-3"
-           style="font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.493px;font-family:'Chalk-hand-lettering-shaded DEM';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.143651"
-           x="-4.1777272"
-           dx="0 -0.13493048 0 0.39264768 0.49654415 -0.16191657 0 -0.13493048"
-           y="24.792238">Gourmand</tspan></text>
-    </g>
+    <text
+       id="text1-4"
+       xml:space="preserve"
+       transform="rotate(-16.04896)"
+       x="6.0698891"
+       y="87.290321"
+       style="font-size:5.17992px;fill:#ffffff;stroke-width:0.431661"><tspan
+         id="tspan1-3"
+         style="font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40.5455px;font-family:'Chalk-hand-lettering-shaded DEM';writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.431661"
+         x="6.0698891"
+         dx="0 -0.40545622 0 1.1798776 1.4920789 -0.48654744 0 -0.40545622"
+         y="87.290321">Gourmand</tspan></text>
     <text
        id="text2-1"
        xml:space="preserve"
        transform="rotate(-18.245612)"
        x="31.384779"
        y="66.034561"
-       style="font-size:5.17991px;stroke-width:0.431661;fill:#000000"><tspan
+       style="font-size:5.17991px;stroke-width:0.431661;fill:#ffffff"><tspan
          id="tspan2-2"
-         style="font-variant:normal;font-weight:normal;font-stretch:normal;font-size:29.0475px;font-family:'Chalk-hand-lettering-shaded DEM';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.431661"
+         style="font-variant:normal;font-weight:normal;font-stretch:normal;font-size:29.0475px;font-family:'Chalk-hand-lettering-shaded DEM';writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.431661"
          x="31.384779"
          dx="0 4.3222737 0 -0.43571314"
          y="66.034561">Vite </tspan></text>
