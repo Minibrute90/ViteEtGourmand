@@ -1,0 +1,6 @@
+Élément			Mobile	Ordinateur de bureau
+Paragraphe		16px	18px
+Accroche / petit texte	14px	16px
+H1			28–32px	42–48px
+H2			22–26px	32–36px
+H3			18–20px	24–28px
