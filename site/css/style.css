@@ -1,0 +1,24 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html{
+    display: flex;
+    flex-direction: column;
+}
+
+/* style header */
+
+header, .navbar ul{
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar{
+    margin-left: 5%;
+    margin-right: 5%;
+    border-bottom: 1px #000000 solid;
+}
+
+
+
