@@ -23,7 +23,7 @@ header{
 }
 
 img.logo-header, img.logo-header-2{
-    width: 150px; 
+    width: 10%; 
 }
 
 ul.nav-classic{
@@ -41,7 +41,7 @@ ul.nav-classic li a, ul#navHamburger li a {
     font-weight: 600;
     letter-spacing:5px;
     color: #6C5F53;
-    font-size: 1.063rem ;
+    font-size: 0.75rem ;
 }
 
 ul.nav-classic li.active a, ul#navHamburger li.active a{
@@ -57,14 +57,7 @@ ul#navHamburger.hidden{
     display: none;
 }
 
-ul#navHamburger{
-    width: 100%;
-    border-top: 1px #6C5F53 solid; ;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    animation: fadeIn 0.5s ease-out;
-} 
+
 
 @keyframes fadeIn{
   from {
@@ -79,13 +72,14 @@ ul#navHamburger{
 
 /* style responsive header */
 
-@media screen and (max-width: 1230px){
-    ul.nav-classic li a{
-        font-size: 0.75rem ;
+@media screen and (min-width: 1220px){
+    ul#navHamburger{
+    display: none;
     }
 }
 
-@media screen and (max-width: 1150px){
+
+@media screen and (max-width: 1220px){
     header{
         display: flex;
         flex-direction: column;
@@ -107,6 +101,38 @@ ul#navHamburger{
         flex-direction: column;
         align-items: center;
     }
+
+    ul#navHamburger{
+    width: 100%;
+    border-top: 1px #6C5F53 solid; ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 0.5s ease-out;
+    } 
+}
+
+/* style carousel */
+
+
+
+/* style responsive carousel */
+
+
+
+/* style Notre Histoire */
+
+h1{
+    font-family: Playfair Display;
+    letter-spacing: 5px;
+    font-size: 3.25rem;
+    font-weight: 500;
+    color:#4A3F36;
+}
+
+.notre-histoire{
+    background-color: #ffffff;
+    
 }
 
 
