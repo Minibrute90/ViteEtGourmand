@@ -20,8 +20,8 @@
             <li><a href="">CONNEXION</a></li>
             <li><a href="">CONTACT</a></li>
        </ul>
-            <a href="" id="bouton-hamburger"><img class="picto-hamburger" src="img/picto_hamburger.png" ></a>
-                <ul class="nav-hamburger">
+            <button id="boutonHamburger"><img class="picto-hamburger" src="img/picto_hamburger.png" ></button>
+                <ul id="navHamburger" class="hidden">
                     <li class="active"><a href="">ACCUEIL</a></li>
                     <li><a href="">NOS MENUS</a></li>
                     <li><a href="">CONNEXION</a></li>
@@ -31,11 +31,39 @@
        <img class="logo-header-2" src="img/logo_cercle_transparent.png">
     </header>
     <main>
-
+        <div id="carouselSlide" class="carouselSlide">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="img/table_accueil.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/image-2-carousel.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="..." class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
     </main>
     <footer>
 
     </footer>
     
 </body>
+    <script>
+        const boutonHamburger = document.getElementById("boutonHamburger");
+        const navHamburger = document.getElementById("navHamburger");
+
+        boutonHamburger.addEventListener('click', () => {
+        navHamburger .classList.toggle("hidden");
+        });
+    </script>
 </html>

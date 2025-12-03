@@ -32,11 +32,11 @@ ul.nav-classic{
     align-items: center;
 }
 
-ul.nav-classic li, ul.nav-hamburger li{
+ul.nav-classic li, ul#navHamburger li{
     margin:40px;
 }
 
-ul.nav-classic li a, ul.nav-hamburger li a {
+ul.nav-classic li a, ul#navHamburger li a {
     font-family: inter, Arial, Helvetica, sans-serif;
     font-weight: 600;
     letter-spacing:5px;
@@ -44,18 +44,37 @@ ul.nav-classic li a, ul.nav-hamburger li a {
     font-size: 1.063rem ;
 }
 
-ul.nav-classic li.active a, ul.nav-hamburger li.active a{
+ul.nav-classic li.active a, ul#navHamburger li.active a{
     color: #A37C4D;
     border-bottom: 1px #A37C4D solid;  
 }
 
-img.picto-hamburger{
+#boutonHamburger{
     display: none;
-    width:100px;
 }
 
-ul.nav-hamburger{
+ul#navHamburger.hidden{
     display: none;
+}
+
+ul#navHamburger{
+    width: 100%;
+    border-top: 1px #6C5F53 solid; ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 0.5s ease-out;
+} 
+
+@keyframes fadeIn{
+  from {
+      opacity: 0;
+      transform: translateY(-5px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
 }
 
 /* style responsive header */
@@ -81,15 +100,9 @@ ul.nav-hamburger{
         display:none;
     }
 
-    img.picto-hamburger{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    ul.nav-hamburger{
-        width: 100%;
-        border-top: 1px #6C5F53 solid;
+    #boutonHamburger{
+        cursor: pointer;
+        border : none;
         display: flex;
         flex-direction: column;
         align-items: center;
