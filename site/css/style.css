@@ -1,29 +1,53 @@
 * {
-    font-family:inter, playfair, Arial, Helvetica, sans-serif;
-    background-color: #E8DFD2 ;
-    text-decoration: none;
-    list-style-type: none;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration-line: none;
 }
 
+
 html{
-    margin:0px 40px 0px 40px;
-    display: flex;
-    flex-direction: column;
+    font-size: 62.5%; /* 1rem = 10px */
+    scroll-behavior: smooth;
 }
+
+body{
+    font-family: 'Inter','Playfair Display', sans-serif;
+    background-color: #E8DFD2;
+}
+
+/* base */
+
+h1, h2{
+    font-family: 'Playfair Display';
+    letter-spacing: 0.5rem;
+    font-size: 3.6rem;
+    font-weight: 500;
+    color:#4A3F36;
+}
+
+h2{
+    font-size: 2.8rem;
+    color:#B45B36;
+}
+
+
+
 
 /* style header */
 
 header{
+    padding: 0 4rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     border-bottom: 1px #6C5F53 solid;
 }
 
-img.logo-header, img.logo-header-2{
-    width: 10%; 
+
+.logo-header, .logo-header-2{
+    padding: 2rem 0rem;
 }
 
 ul.nav-classic{
@@ -33,20 +57,24 @@ ul.nav-classic{
 }
 
 ul.nav-classic li, ul#navHamburger li{
-    margin:40px;
+    padding:4rem;
 }
 
 ul.nav-classic li a, ul#navHamburger li a {
-    font-family: inter, Arial, Helvetica, sans-serif;
+    font-family: 'inter', Arial, Helvetica, sans-serif;
     font-weight: 600;
-    letter-spacing:5px;
+    letter-spacing:0.03rem;
     color: #6C5F53;
-    font-size: 0.75rem ;
+    font-size: 1.7rem ;
 }
 
 ul.nav-classic li.active a, ul#navHamburger li.active a{
     color: #A37C4D;
     border-bottom: 1px #A37C4D solid;  
+}
+
+ul.nav-classic li a:hover, ul#navHamburger li a:hover{
+    color: #A37C4D; 
 }
 
 #boutonHamburger{
@@ -57,20 +85,26 @@ ul#navHamburger.hidden{
     display: none;
 }
 
+/* style carousel */
 
 
-@keyframes fadeIn{
-  from {
-      opacity: 0;
-      transform: translateY(-5px);
-  }
-  to {
-      opacity: 1;
-      transform: translateY(0);
-  }
+
+
+
+/* style Notre Histoire */
+
+.notre-histoire{
+    margin: 4rem 0rem;
+    background-color: #ffffff;
 }
 
-/* style responsive header */
+.container-histoire{
+    padding: 2rem 4rem;
+}
+
+
+
+/* style responsive*/
 
 @media screen and (min-width: 1220px){
     ul#navHamburger{
@@ -95,45 +129,39 @@ ul#navHamburger.hidden{
     }
 
     #boutonHamburger{
+        background-color: #E8DFD2;
         cursor: pointer;
         border : none;
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-bottom: 2rem;
     }
 
     ul#navHamburger{
-    width: 100%;
-    border-top: 1px #6C5F53 solid; ;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    animation: fadeIn 0.5s ease-out;
-    } 
+        width: 100%;
+        border-top: 1px #6C5F53 solid; ;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        animation: fadeIn 0.5s ease-out;
+    }
 }
 
-/* style carousel */
-
-
-
-/* style responsive carousel */
-
-
-
-/* style Notre Histoire */
-
-h1{
-    font-family: Playfair Display;
-    letter-spacing: 5px;
-    font-size: 3.25rem;
-    font-weight: 500;
-    color:#4A3F36;
+@keyframes fadeIn{
+  from {
+      opacity: 0;
+      transform: translateY(-5px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
 }
 
-.notre-histoire{
-    background-color: #ffffff;
-    
-}
+
+
+
 
 
 
