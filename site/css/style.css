@@ -19,7 +19,11 @@ body{
 
 /* base */
 
-h1, h2{
+h1{
+   
+    display:flex;
+    flex-direction: row;
+    align-items: center;
     font-family: 'Playfair Display';
     letter-spacing: 0.5rem;
     font-size: 3.6rem;
@@ -29,7 +33,17 @@ h1, h2{
 
 h2{
     font-size: 2.8rem;
+    font-family: 'Playfair Display';
+    letter-spacing: 0.5rem;
+    font-weight: 400;
+    font-style: italic;
     color:#B45B36;
+}
+
+.trait{
+    display: flex;
+    width:40px;
+    border-bottom:1px solid #4B3A2F;
 }
 
 
@@ -94,12 +108,25 @@ ul#navHamburger.hidden{
 /* style Notre Histoire */
 
 .notre-histoire{
+    display: flex;
+    flex-direction: column;
     margin: 4rem 0rem;
     background-color: #ffffff;
 }
 
 .container-histoire{
     padding: 2rem 4rem;
+}
+
+.contenue-histoire{
+    display: flex;
+    flex-direction: row;
+}
+
+.photo-histoire{
+    width: 380px;
+    border-radius: 2rem;
+
 }
 
 
