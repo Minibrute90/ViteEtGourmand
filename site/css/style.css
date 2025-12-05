@@ -17,33 +17,45 @@ body{
     background-color: #E8DFD2;
 }
 
+
+
 /* base */
 
-h1{
-   
+.titreh1{
+    padding:0rem 4rem;
     display:flex;
     flex-direction: row;
     align-items: center;
-    font-family: 'Playfair Display';
+}
+
+h1{
+    padding: 0rem 2rem;
+    font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
     letter-spacing: 0.5rem;
-    font-size: 3.6rem;
+    font-size: 3.2rem;
+    line-height: 1.2;
     font-weight: 500;
     color:#4A3F36;
 }
 
 h2{
-    font-size: 2.8rem;
-    font-family: 'Playfair Display';
+    padding: 0rem 4rem;
+    font-size: 2.4rem;
+    font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
     letter-spacing: 0.5rem;
     font-weight: 400;
+    line-height: 1.3;
     font-style: italic;
     color:#B45B36;
 }
 
 .trait{
-    display: flex;
     width:40px;
     border-bottom:1px solid #4B3A2F;
+}
+
+p{
+    font-family: 'inter', Arial, Helvetica, sans-serif;
 }
 
 
@@ -110,23 +122,40 @@ ul#navHamburger.hidden{
 .notre-histoire{
     display: flex;
     flex-direction: column;
+    justify-self:center;
     margin: 4rem 0rem;
     background-color: #ffffff;
 }
 
 .container-histoire{
-    padding: 2rem 4rem;
+    padding: 2rem 0rem;
 }
 
 .contenue-histoire{
+    padding: 2rem 0rem;
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
 }
 
 .photo-histoire{
-    width: 380px;
     border-radius: 2rem;
+    margin:0rem 2rem 0rem 4rem;
+    box-shadow: 0px 4px 4px 0px rgba(96, 90, 84, 0.25);
+}
 
+.texte-histoire{
+    margin:0rem 4rem 0rem 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+p.resume{
+    text-align: justify;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    letter-spacing: 0.5rem;
 }
 
 
