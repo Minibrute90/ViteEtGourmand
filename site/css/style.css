@@ -130,11 +130,11 @@ ul#navHamburger.hidden{
 
 /* style Notre Histoire */
 
-.notre-histoire{
-    max-width: 1400px; 
+section.notre-histoire{
+    max-width: 1400px;
     display: flex;
-    flex-direction: column;
     justify-self: center;
+    flex-direction: column;
     margin: 4rem 0rem;
     background-color: #ffffff;
     box-shadow: 0px 4px 4px 0px rgba(96, 90, 84, 0.25);
@@ -195,7 +195,79 @@ p.accroche-histoire{
     color:#B45B36;
 }
 
+/* style Notre Équipe */
 
+section.notre-equipe{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.titreh1-equipe, .h2-notreequipe{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p.accroche-equipe{
+    padding: 2rem;
+    text-align: center;
+    font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
+    font-size: 1.6rem;
+    font-style: italic;
+    letter-spacing: 0.2rem;
+    color: #4A3F36;
+}
+
+.photo-equipe{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.ensemble-portrait{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+img.portrait{
+    width: 50%;
+}
+
+.nom-portrait{
+    font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
+    font-size: 5.2rem;
+    font-style: italic;
+    text-align: center;
+}
+
+.poste-portrait{
+    font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
+    font-size: 2.4rem;
+    text-align: center;
+}
+
+.resume-equipe{
+    padding: 2rem 2rem;
+    text-align:center;
+    font-family:'inter', Arial, Helvetica, sans-serif;
+    font-size: 1.6rem;
+}
+
+/* style Notre Signature */
+
+section.notre-signature{
+    max-width: 1400px;
+    display: flex;
+    justify-self: center;
+    flex-direction: column;
+    margin: 4rem 0rem;
+    background-color: #000000;
+    box-shadow: 0px 4px 4px 0px rgba(96, 90, 84, 0.25);
+}
 
 /* style responsive*/
 
@@ -213,11 +285,20 @@ p.accroche-histoire{
         align-items: center;
     }
 
-   
-    h2{
-        width: 50%;
-        font-size: 1.8rem;
+    .titreh1{
+        padding:0rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
     }
+
+    h2, h3{
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+    }
+
+
 
     ul.nav-classic li{
         display: none;
@@ -245,16 +326,34 @@ p.accroche-histoire{
         animation: fadeIn 0.5s ease-out;
     }
 
-   
+    .notre-histoire{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
 
+    .contenue-histoire{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 
+    .photo-histoire, .texte-histoire, .accroche-histoire{
+        margin: 2rem;
+    }
 
+    .photo-equipe{
+        flex-direction: column;
+    }
 
+    .ensemble-portrait{
+        padding:2rem 0rem;
+    }
 }
 
 @keyframes fadeIn{
   from {
-      opacity: 0;
+      opacity: 1;
       transform: translateY(-5px);
   }
   to {
