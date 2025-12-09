@@ -269,6 +269,23 @@ section.notre-signature{
     box-shadow: 0px 4px 4px 0px rgba(96, 90, 84, 0.25);
 }
 
+
+.h1-notresignature, .h2-notresignature{
+    color:#ffffff;
+}
+
+.trait-signature{
+    width:40px;
+    border-bottom:1px solid #ffffff;
+}
+
+.ensemble-carte{
+    padding: 2rem 4rem;
+    display:flex;
+    flex-direction: row;
+    justify-items: center;
+}
+
 /* style responsive*/
 
 @media screen and (min-width: 1220px){
