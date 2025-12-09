@@ -21,8 +21,10 @@ body{
 
 /* base */
 
+
+
 .titreh1{
-    padding:0rem 4rem;
+    padding: 1rem 4rem;
     display:flex;
     flex-direction: row;
     align-items: center;
@@ -40,7 +42,7 @@ h1{
 
 h2{
     padding: 0rem 4rem;
-    font-size: 2.4rem;
+    font-size: 2.8rem;
     font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
     letter-spacing: 0.5rem;
     font-weight: 400;
@@ -59,11 +61,19 @@ h3{
     color:#605A54;
 }
 
+h4{
+    font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
+    color:#ffffff;
+    font-size: 2.4;
+    letter-spacing: 0.5rem;
+    font-weight: 600;
+    font-style: italic;
+}
+
 .trait{
     width:40px;
     border-bottom:1px solid #4B3A2F;
 }
-
 
 button{
     cursor: pointer;
@@ -138,10 +148,6 @@ section.notre-histoire{
     margin: 4rem 0rem;
     background-color: #ffffff;
     box-shadow: 0px 4px 4px 0px rgba(96, 90, 84, 0.25);
-}
-
-.container-histoire{
-    padding: 2rem 0rem;
 }
 
 .contenue-histoire{
@@ -260,6 +266,7 @@ img.portrait{
 /* style Notre Signature */
 
 section.notre-signature{
+    max-width: 1400px;
     display: flex;
     justify-self: center;
     flex-direction: column;
@@ -268,32 +275,36 @@ section.notre-signature{
     box-shadow: 0px 4px 4px 0px rgba(96, 90, 84, 0.25);
 }
 
-.container-signature{
-    padding: 2rem 0rem;
-}
-
-
-.h1-notresignature, .h2-notresignature{
-    color:#ffffff;
-}
-
 .trait-signature{
-    width:40px;
-    border-bottom:1px solid #ffffff;
+    width: 40px;
+    border-bottom:1px solid #FFFFFF;
+}
+
+h1.h1-notresignature, h2.h2-notresignature{
+    color:#FFFFFF;
 }
 
 .ensemble-carte{
-    display:flex;
+    padding: 2rem 4rem;
+    display: flex;
     flex-direction: row;
-    
+    justify-content: space-around;
 }
 
-.carte-signature{
-    padding:0rem 4rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.carte{
+    padding-right:4rem;
 }
+
+.carte:last-child{
+    padding-right:0rem;
+}
+
+.texte-carte{
+    max-width: 400px;
+}
+
+
+
 
 /* style responsive*/
 
