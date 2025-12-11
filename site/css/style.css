@@ -52,22 +52,25 @@ h2{
 }
 
 h3{
-    padding: 4rem 0rem;
+    margin:4rem 0;
     font-size: 2.4rem;
     font-family: 'inter', Arial, Helvetica, sans-serif;
     letter-spacing: 0.5rem;
     font-weight: 600;
     line-height: 1.3;
     color:#605A54;
+    text-align: center;
 }
 
 h4{
+    padding: 2rem 0rem;
     font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
     color:#ffffff;
-    font-size: 2.4;
+    font-size: 2rem;
     letter-spacing: 0.5rem;
     font-weight: 600;
     font-style: italic;
+    text-align: center;
 }
 
 .trait{
@@ -180,6 +183,7 @@ p.resume{
 }
 
 button#CTAHistoire{
+    margin:2rem 0;
     border:none;
     background-color:#A37C4D;
     border-radius: 50px;
@@ -225,7 +229,7 @@ p.accroche-equipe{
     color: #4A3F36;
 }
 
-.photo-equipe{
+.photo-equipe{    
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -285,14 +289,21 @@ h1.h1-notresignature, h2.h2-notresignature{
 }
 
 .ensemble-carte{
-    padding: 2rem 4rem;
+    padding: 4rem 4rem;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 
+.image-carte{
+    border-radius:2rem;
+}
+
 .carte{
     padding-right:4rem;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
 }
 
 .carte:last-child{
@@ -301,6 +312,21 @@ h1.h1-notresignature, h2.h2-notresignature{
 
 .texte-carte{
     max-width: 400px;
+}
+
+.accroche-carte{
+    color: #FFFFFF;
+    font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.resume-carte{
+    padding: 2rem 0;
+    color: #FFFFFF;
+    text-align: justify;
+    font-family:'inter', Arial, Helvetica, sans-serif;
+    font-size: 1.6rem;
 }
 
 
@@ -385,6 +411,10 @@ h1.h1-notresignature, h2.h2-notresignature{
 
     .ensemble-portrait{
         padding:2rem 0rem;
+    }
+
+    .ensemble-carte{
+        flex-direction: column;
     }
 }
 
