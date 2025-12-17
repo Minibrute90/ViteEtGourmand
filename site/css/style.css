@@ -81,10 +81,16 @@ button{
     cursor: pointer;
 }
 
+.CTANosmenus{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}   
+
 button#CTANosmenus{
-    margin:2rem 0;
+    margin: 0 auto;
     border:none;
-    background-color:#A37C4D;
+    background-color:#A37C4D;   
     border-radius: 50px;
     width: 290px;
     height: 50px;
@@ -92,8 +98,9 @@ button#CTANosmenus{
     font-family:'inter', Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 1.6rem;
-    box-shadow: 0px 4px 4px 0px rgba(96, 90, 84, 0.25);
+    box-shadow: 0px 4px 4px 0px rgba(96, 90, 84, 0.25);      
 }
+
 
 
 
@@ -157,13 +164,11 @@ ul#navHamburger.hidden{
 /* style Notre Histoire */
 
 section.notre-histoire{
-    max-width: 1400px;
     display: flex;
-    justify-self: center;
     flex-direction: column;
-    margin: 4rem 0rem;
+    justify-content: center;
     background-color: #ffffff;
-    
+    padding: 2rem;
 }
 
 .contenue-histoire{
@@ -181,9 +186,8 @@ section.notre-histoire{
 
 .texte-histoire{
     margin:0rem 4rem 0rem 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
+    align-content: center;
 }
 
 p.resume{
@@ -212,6 +216,7 @@ section.notre-equipe{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 2rem;  
 }
 
 .titreh1-equipe, .h2-notreequipe{
@@ -271,12 +276,12 @@ img.portrait{
 /* style Notre Signature */
 
 section.notre-signature{
+    padding: 2rem;
     display: flex;
-    justify-self: center;
     flex-direction: column;
+    justify-content: center;
     margin: 4rem 0rem;
     background-image: linear-gradient(rgba(0, 0, 0, 0.55)), url("../img/table_traiteur.jpg");
-    background-repeat: no-repeat, no-repeat;
     box-shadow: 0px 4px 4px 0px rgba(96, 90, 84, 0.25);
 }
 
@@ -340,7 +345,9 @@ h1.h1-notresignature, h2.h2-notresignature{
     line-height: 3rem;  
 }
 
-
+.h3-signature{
+    color: #FFFFFF;
+}
 
 
 /* style responsive*/
@@ -366,12 +373,11 @@ h1.h1-notresignature, h2.h2-notresignature{
         justify-content: center;
     }
 
-    h2, h3{
+    h1, h2, h3{
         display: flex;
         flex-direction: row;
         text-align: center;
     }
-
 
 
     ul.nav-classic li{
@@ -400,21 +406,18 @@ h1.h1-notresignature, h2.h2-notresignature{
         animation: fadeIn 0.5s ease-out;
     }
 
-    .notre-histoire{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .contenue-histoire{
+    .contenue-histoire, .texte-histoire{
+        margin:2rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        
     }
 
-    .photo-histoire, .texte-histoire, .accroche-histoire{
+    .photo-histoire{
         margin: 2rem;
     }
+
 
     .photo-equipe{
         flex-direction: column;
@@ -425,9 +428,30 @@ h1.h1-notresignature, h2.h2-notresignature{
     }
 
     .ensemble-carte{
+        padding:2rem 0;
+        display: flex;
         flex-direction: column;
+        justify-content: center;
     }
-}
+
+    .image-carte{
+        margin: 0rem;
+    }
+
+    .carte:last-child{
+    padding-right:2rem;
+    }
+
+    .texte-carte{
+        margin: 2rem 0;
+    }
+
+    .carte{
+        margin: 0rem;
+        padding: 2rem;
+    }
+
+    
 
 @keyframes fadeIn{
   from {
