@@ -101,13 +101,11 @@ button#CTANosmenus{
     box-shadow: 0px 4px 4px 0px rgba(96, 90, 84, 0.25);      
 }
 
-
-
-
-
 /* style header */
 
 header{
+    max-width: 1360px;
+    margin: 0 auto;
     padding: 0 4rem;
     display: flex;
     flex-direction: row;
@@ -181,6 +179,8 @@ section.hero{
     transform: translate(-50%, -50%);
 }
 
+
+
 /* Bande d’images */
 .carousel-track {
   display: flex;
@@ -212,9 +212,10 @@ section.notre-histoire{
     max-width: 1360px;
     display: flex;
     flex-direction: column;
-    justify-self: center;
+    margin: 0 auto;
     background-color: #ffffff;
     padding: 2rem;
+    box-shadow: 0px 4px 4px 0px rgba(96, 90, 84, 0.25);
 }
 
 .contenue-histoire{
@@ -262,7 +263,7 @@ section.notre-equipe{
     max-width: 1360px;
     display: flex;
     flex-direction: column;
-    justify-self: center;
+    margin: 0 auto;
     padding: 2rem;  
 }
 
@@ -327,8 +328,7 @@ section.notre-signature{
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    justify-self: center;
-    margin: 4rem 0rem;
+    margin: 0 auto;
     background-image: linear-gradient(rgba(0, 0, 0, 0.55)), url("../img/table_traiteur.jpg");
     box-shadow: 0px 4px 4px 0px rgba(96, 90, 84, 0.25);
 }
@@ -454,11 +454,12 @@ h1.h1-notresignature, h2.h2-notresignature{
         animation: fadeIn 0.5s ease-out;
     }
 
+
     .contenue-histoire, .texte-histoire{
         margin:2rem;
         display: flex;
         flex-direction: column;
-        justify-self: center;  
+        justify-content: center;  
     }
 
     .photo-histoire{
