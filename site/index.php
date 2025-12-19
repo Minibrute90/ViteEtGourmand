@@ -12,6 +12,12 @@
     <title>Vite & Gourmand - Accueil</title>
 
 </head>
+
+<?php
+    // Connexion à la base de données
+    $connexionBdd = new PDO('mysql:host=localhost;dbname=viteetgourmand;charset=utf8', 'root', '');
+?>
+
 <body>
     <header>
        <img class="logo-header" src="img/logoblanc_cercle_transparent_150.png">
@@ -171,6 +177,22 @@
             </div>
             <h2 class="h2-notreequipe">"De beaux moments partagés, de jolies rencontres… merci pour tout"</h2>
 
+            <?php
+                $bddAvis=$connexionBdd->query(" SELECT * FROM avis "); 
+	            $bddAvis->setFetchMode(PDO::FETCH_OBJ);
+	            if ($resultatAvis = $bddAvis->fetch()){
+                        do{
+                            echo "<table>";
+                                echo "<tr>".$resultatAvis->avis_nom."<tr>\n";
+                                echo "<tr>".$resultatAvis->avis_theme."<tr>\n";
+                                echo "<tr>".$resultatAvis->avis_note."<tr>\n";
+                                echo "<tr>".$resultatAvis->avis_description."<tr>\n";
+                            echo "</table>";  
+                        }
+                while ($resultatAvis = $bddAvis->fetch());
+		        $bddAvis->closeCursor();
+                } 
+            ?>
         </section>
 
         
