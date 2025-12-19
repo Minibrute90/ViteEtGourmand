@@ -101,6 +101,13 @@ button#CTANosmenus{
     box-shadow: 0px 4px 4px 0px rgba(96, 90, 84, 0.25);      
 }
 
+.ensemble-carte{
+    padding: 4rem 4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
 /* style header */
 
 header{
@@ -342,13 +349,6 @@ h1.h1-notresignature, h2.h2-notresignature{
     color:#FFFFFF;
 }
 
-.ensemble-carte{
-    padding: 4rem 4rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
 .image-carte{
     border-radius:2rem;
     margin-bottom: 4rem;
@@ -410,12 +410,56 @@ section.avis{
 }
 
 .carte-avis{
-    background-color: #D9D9D9;
+    margin: 0 2rem;
+    padding:2rem;
+    border-radius: 2rem;
+    background-color:rgba(217, 217, 217, 0.40) ;
+    display: flex;
+    flex-direction:column;
+}
+
+.avis-nom, .avis-theme{
+    font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.avis-note{
+    margin:1rem 0;
+    text-align: center;
+}
+
+.avis-description{
+    max-width: 250px;
+    max-height: 200px;
+    padding:1rem;
+    text-align: center;
+    font-family:'inter', Arial, Helvetica, sans-serif;
+    font-weight: 200;
+    font-size: 1.6rem;
+}
+
+/*style footer*/
+
+footer{
+    padding:4rem 0;
+    max-width: 1360px;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
 }
 
+.info-entreprise{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.logo-footer{
+    margin:0 auto;
+    max-width: 150px;
+}
 
 /* style responsive*/
 
