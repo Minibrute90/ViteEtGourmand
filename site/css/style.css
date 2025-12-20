@@ -456,9 +456,57 @@ footer{
     justify-content: space-around;
 }
 
+.colonne-info{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.picto-info{
+    margin: 0 auto;
+    width: 24px;
+    height: 24px;
+}
+
+.titre-info{
+    padding:1rem 0;
+    color:#A37C4D;
+    text-align: center;
+    border-bottom: #A37C4D 1px solid;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.info-info{
+    padding: 1rem 0;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+table.info-info th{
+    text-align: left;
+    padding-top:1rem;
+}
+
+table.info-info th.h{
+    text-align: right;
+    font-weight: lighter;
+}
+
 .logo-footer{
     margin:0 auto;
     max-width: 150px;
+    margin-bottom: 2rem;
+}
+
+.mentions {
+    color:#A37C4D;
+    text-align: center;
+}
+
+.mentions a{
+    color: #A37C4D;
+    border-bottom: #A37C4D 1px solid;
 }
 
 /* style responsive*/

@@ -200,58 +200,60 @@
     </main>
     <footer>
         <div class="info-entreprise">
-            <div class="adresse">
-                <div class="picto-footer" src="img/''"></div>
-                <div class="titre-footer">Adresse</div>
-                <div class="info-footer">27 Rue des Faures, 33000 Bordeaux</div>
+            <div class="colonne-info">
+                <img class="picto-info" src="img/picto_adresse.svg">
+                <div class="titre-info">Adresse</div>
+                <div class="info-info">27 Rue des Faures, 33000 Bordeaux</div>
             </div>
-            <div class="tel">
-                <div class="picto" src="img/''"></div>
-                <div class="titre-footer">Téléphone</div>
-                <div class="info-footer">05 56 87 42 13</div>
+            <div class="colonne-info">
+                <img class="picto-info" src="img/picto_tel.svg">
+                <div class="titre-info">Téléphone</div>
+                <div class="info-info">05 56 87 42 13</div>
             </div>
-            <div class="email">
-                <div class="picto" src="img/''"></div>
-                <div class="titre-footer">Email</div>
-                <div class="info-footer">contact@vite&gourmand.com</div>
+            <div class="colonne-info">
+                <img class="picto-info" src="img/picto_email.svg">
+                <div class="titre-info">Email</div>
+                <div class="info-info">contact@vite&gourmand.com</div>
             </div>
-            <div class="horaire">
-                <div class="picto" src="img/''"></div>
-                <div class="titre-footer">Horaire d'ouverture</div>
-                <table class="horaire">
+            <div class="colonne-info">
+                <img class="picto-info" src="img/picto_clock.svg">
+                <div class="titre-info">Horaire d'ouverture</div>
+                <table class="info-info">
                     <tr>
                         <th>Lundi</th>
-                        <th>9h00-18h00</th>
+                        <th class="h">9h00-18h00</th>
                     </tr>
                     <tr>
                         <th>mardi</th>
-                        <th>9h00-18h00</th>
+                        <th class="h">9h00-18h00</th>
                     </tr>
                     <tr>
                         <th>Mercredi</th>
-                        <th>9h00-18h00</th>
+                        <th class="h">9h00-18h00</th>
                     </tr>
                     <tr>
                         <th>Jeudi</th>
-                        <th>9h00-18h00</th>
+                        <th class="h">9h00-18h00</th>
                     </tr>
                     <tr>
                         <th>Vendredi</th>
-                        <th>9h00-18h00</th>
+                        <th class="h">9h00-18h00</th>
                     </tr>
                     <tr>
                         <th>Samedi</th>
-                        <th>10h00-18h00</th>
+                        <th class="h">10h00-18h00</th>
                     </tr>
                     <tr>
                         <th>Dimanche</th>
-                        <th>10h00-13h00</th>
+                        <th class="h">10h00-13h00</th>
                     </tr>
                 </table>
             </div>
         </div>
         <img class="logo-footer" src="img/logoblanc_cercle_transparent_150.png">
-        <div class="mentions">@Minibrute - 2026 - Tous droits réservés - <a href="">Mentions Légales</a> - <a href="">conditions générales de ventes</a> - <a href="">Gestion des cookies</a>     
+        <div class="mentions">
+           @Minibrute - 2026 - Tous droits réservés - <a href="">Mentions Légales</a> - <a href="">conditions générales de ventes</a> - <a href="">Gestion des cookies</a>
+        </div> 
     </footer>
     
 </body>
