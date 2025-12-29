@@ -24,6 +24,7 @@
        <ul class="nav-classic">
             <li class="active"><a href="">ACCUEIL</a></li>
             <li><a href="">NOS MENUS</a></li>
+            <li><a href="#info">INFOS</a></li>
             <li><a href="">CONNEXION</a></li>
             <li><a href="">CONTACT</a></li>
        </ul>
@@ -31,6 +32,7 @@
                 <ul id="navHamburger" class="hidden">
                     <li class="active"><a href="">ACCUEIL</a></li>
                     <li><a href="">NOS MENUS</a></li>
+                    <li><a href="#info">INFOS</a></li>
                     <li><a href="">CONNEXION</a></li>
                     <li><a href="">CONTACT</a></li>
                 </ul>
@@ -40,6 +42,12 @@
     <main>
 
         <section class="hero" id="accueil">
+            <ul class="nav-ancre">
+                    <li><a href="#histoire">Notre Histoire</a></li>
+                    <li><a href="#equipe">Notre Équipe</a></li>
+                    <li><a href="#signature">Notre Signature</a></li>
+                    <li><a href="#avis">Votre Confiance</a></li>
+            </ul> 
             <div class="carousel">
                 <div class="carousel-logo">
                     <img src="img/logoblanc_cercle_transparent.png" alt="Logo">
@@ -52,7 +60,7 @@
             </div>
         </section>
 
-        <section class="notre-histoire" id="notre-histoire">
+        <section class="notre-histoire" id="histoire">
             <div class="titreh1">
                 <div class="trait"></div>
                 <h1>Notre Histoire</h1>
@@ -90,7 +98,7 @@
             </p>
         </section>
 
-        <section class="notre-equipe" id="notre-equipe">
+        <section class="notre-equipe" id="equipe">
             <div class="titreh1-equipe">
                     <div class="trait"></div>
                     <h1>Notre Équipe</h1>
@@ -121,7 +129,7 @@
             </p>
         </section>
 
-        <section class="notre-signature" id="notre-signature">
+        <section class="notre-signature" id="signature">
             <div class="titreh1">
                 <div class="trait-signature"></div>
                 <h1 class=h1-notresignature>Notre Signature</h1>
@@ -177,7 +185,7 @@
             </div>
             <h2 class="h2-notreequipe">"De beaux moments partagés, de jolies rencontres… merci pour tout"</h2>
 
-            <div class="ensemble-carte">
+            <div class="ensemble-avis">
                 <?php
                     $bddAvis=$connexionBdd->query(" SELECT * FROM avis "); 
                     $bddAvis->setFetchMode(PDO::FETCH_OBJ);
@@ -198,7 +206,7 @@
         </section>
 
     </main>
-    <footer>
+    <footer id="info">
         <div class="info-entreprise">
             <div class="colonne-info">
                 <img class="picto-info" src="img/picto_adresse.svg">

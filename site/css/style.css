@@ -101,16 +101,11 @@ button#CTANosmenus{
     box-shadow: 0px 4px 4px 0px rgba(96, 90, 84, 0.25);      
 }
 
-.ensemble-carte{
-    padding: 4rem 4rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
 
 /* style header */
 
 header{
+    
     max-width: 1360px;
     margin: 0 auto;
     padding: 0 4rem;
@@ -163,7 +158,17 @@ ul#navHamburger.hidden{
 /* style carousel */
 
 section.hero{
-    margin: 4rem
+    margin: 4rem 0rem;
+}
+
+ul.nav-ancre{
+    position: absolute;
+    width: 200px;
+    height: 40px;
+}
+
+ul.nav-ancre li{
+    background-color: rgba(255, 255, 255, 0.4);
 }
 
 .carousel {
@@ -271,7 +276,7 @@ section.notre-equipe{
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    padding: 2rem;  
+    padding: 4rem;  
 }
 
 .titreh1-equipe, .h2-notreequipe{
@@ -281,7 +286,7 @@ section.notre-equipe{
 }
 
 p.accroche-equipe{
-    padding: 2rem;
+    padding: 3rem;
     text-align: center;
     font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
     font-size: 1.6rem;
@@ -332,7 +337,8 @@ img.portrait{
 
 section.notre-signature{
     max-width: 1360px;
-    padding: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -353,6 +359,13 @@ h1.h1-notresignature, h2.h2-notresignature{
     border-radius:2rem;
     margin-bottom: 4rem;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.ensemble-carte{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin:2rem auto;
 }
 
 .carte{
@@ -407,6 +420,13 @@ section.avis{
     background-color: #ffffff;
     padding: 2rem;
     box-shadow: 0px 4px 4px 0px rgba(96, 90, 84, 0.25);
+}
+
+.ensemble-avis{
+    padding: 2rem 0rem;
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
 }
 
 .carte-avis{
@@ -526,7 +546,6 @@ table.info-info th.h{
     }
 
     .titreh1{
-        padding:0rem;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -586,12 +605,13 @@ table.info-info th.h{
         padding:2rem 0rem;
     }
 
-    .ensemble-carte{
-        padding:2rem 0;
+    .ensemble-carte, .ensemble-avis{
         display: flex;
         flex-direction: column;
-        justify-self: center;
+        justify-content: center;
+        margin: 2rem;
     }
+
 
     .image-carte{
         margin: 0rem;
@@ -608,6 +628,16 @@ table.info-info th.h{
     .carte{
         margin: 0rem;
         padding: 2rem;
+    }
+
+    .carte-avis{
+        margin: 2rem 0;
+    }
+
+    .info-entreprise{
+        display: flex;
+        flex-direction: column;
+        margin:2rem auto;
     }
 }
     
