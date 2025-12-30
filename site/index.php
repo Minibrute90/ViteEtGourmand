@@ -21,33 +21,34 @@
 <body>
     <header>
        <img class="logo-header" src="img/logoblanc_cercle_transparent_150.png">
-       <ul class="nav-classic">
-            <li class="active"><a href="">ACCUEIL</a></li>
-            <li><a href="">NOS MENUS</a></li>
-            <li><a href="#info">INFOS</a></li>
-            <li><a href="">CONNEXION</a></li>
-            <li><a href="">CONTACT</a></li>
-       </ul>
-            <button id="boutonHamburger"><img class="picto-hamburger" src="img/picto_hamburger.png" ></button>
-                <ul id="navHamburger" class="hidden">
-                    <li class="active"><a href="">ACCUEIL</a></li>
-                    <li><a href="">NOS MENUS</a></li>
-                    <li><a href="#info">INFOS</a></li>
-                    <li><a href="">CONNEXION</a></li>
-                    <li><a href="">CONTACT</a></li>
-                </ul>
-       </div>
+       <div class="nav-header">
+            <ul class="nav-classic">
+                <li class="active"><a href="">ACCUEIL</a></li>
+                <li><a href="">NOS MENUS</a></li>
+                <li><a href="#info">INFOS</a></li>
+                <li><a href="">CONNEXION</a></li>
+                <li><a href="">CONTACT</a></li>
+            </ul>
+            <ul class="nav-ancre">
+                <li><a href="#histoire">Notre Histoire</a></li>
+                <li><a href="#equipe">Notre Équipe</a></li>
+                <li><a href="#signature">Notre Signature</a></li>
+                <li><a href="#avis">Votre Confiance</a></li>
+            </ul>
+        </div>
+        <button id="boutonHamburger"><img class="picto-hamburger" src="img/picto_hamburger.png" ></button>
+            <ul id="navHamburger" class="hidden">
+                <li class="active"><a href="">ACCUEIL</a></li>
+                <li><a href="">NOS MENUS</a></li>
+                <li><a href="#info">INFOS</a></li>
+                <li><a href="">CONNEXION</a></li>
+                <li><a href="">CONTACT</a></li>
+            </ul>
        <img class="logo-header-2" src="img/logoblanc_cercle_transparent_150.png">
     </header>
     <main>
 
-        <section class="hero" id="accueil">
-            <ul class="nav-ancre">
-                    <li><a href="#histoire">Notre Histoire</a></li>
-                    <li><a href="#equipe">Notre Équipe</a></li>
-                    <li><a href="#signature">Notre Signature</a></li>
-                    <li><a href="#avis">Votre Confiance</a></li>
-            </ul> 
+        <section class="hero" id="accueil"> 
             <div class="carousel">
                 <div class="carousel-logo">
                     <img src="img/logoblanc_cercle_transparent.png" alt="Logo">

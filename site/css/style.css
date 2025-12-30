@@ -120,6 +120,12 @@ header{
     padding: 2rem 0rem;
 }
 
+.nav-header{
+    display: flex;
+    flex-direction: column;
+    margin:0 auto;
+}
+
 ul.nav-classic{
     display: flex;
     flex-direction: row;
@@ -147,6 +153,31 @@ ul.nav-classic li a:hover, ul#navHamburger li a:hover{
     color: #A37C4D; 
 }
 
+.nav-ancre {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    padding: 1rem 1rem;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6px);
+    border-radius: 50px;
+}
+
+.nav-ancre li{
+    padding: 0 2rem;
+}
+
+.nav-ancre a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+}
+
+.nav-ancre a:hover{
+    color:#B45B36;
+}
+
 #boutonHamburger{
     display: none;
 }
@@ -159,16 +190,6 @@ ul#navHamburger.hidden{
 
 section.hero{
     margin: 4rem 0rem;
-}
-
-ul.nav-ancre{
-    position: absolute;
-    width: 200px;
-    height: 40px;
-}
-
-ul.nav-ancre li{
-    background-color: rgba(255, 255, 255, 0.4);
 }
 
 .carousel {
