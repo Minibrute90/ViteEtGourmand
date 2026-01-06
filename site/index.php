@@ -23,11 +23,11 @@
        <img class="logo-header" src="img/logoblanc_cercle_transparent_150.png">
        <div class="nav-header">
             <ul class="nav-classic">
-                <li class="active"><a href="">ACCUEIL</a></li>
-                <li><a href="">NOS MENUS</a></li>
+                <li class="active"><a href="index.php">ACCUEIL</a></li>
+                <li><a href="nos-menus.php">NOS MENUS</a></li>
                 <li><a href="#info">INFOS</a></li>
-                <li><a href="">CONNEXION</a></li>
-                <li><a href="">CONTACT</a></li>
+                <li><a href="connexion.php">CONNEXION</a></li>
+                <li><a href="contact.php">CONTACT</a></li>
             </ul>
             <ul class="nav-ancre">
                 <li><a href="#histoire">Notre Histoire</a></li>
@@ -38,11 +38,17 @@
         </div>
         <button id="boutonHamburger"><img class="picto-hamburger" src="img/picto_hamburger.png" ></button>
             <ul id="navHamburger" class="hidden">
-                <li class="active"><a href="">ACCUEIL</a></li>
-                <li><a href="">NOS MENUS</a></li>
+                <li class="active"><a href="index.php">ACCUEIL</a></li>
+                <li><a href="nos-menus">NOS MENUS</a></li>
                 <li><a href="#info">INFOS</a></li>
-                <li><a href="">CONNEXION</a></li>
-                <li><a href="">CONTACT</a></li>
+                <li><a href="connexion.php">CONNEXION</a></li>
+                <li><a href="contact.php">CONTACT</a></li>
+            </ul>
+            <ul class="nav-ancre-responsive">
+                <li><a href="#histoire">Notre Histoire</a></li>
+                <li><a href="#equipe">Notre Équipe</a></li>
+                <li><a href="#signature">Notre Signature</a></li>
+                <li><a href="#avis">Votre Confiance</a></li>
             </ul>
        <img class="logo-header-2" src="img/logoblanc_cercle_transparent_150.png">
     </header>

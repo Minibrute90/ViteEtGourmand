@@ -1,0 +1,279 @@
+🍽️ MENU 1 — Noël Gourmand
+
+Description : Menu festif aux saveurs traditionnelles revisitées, idéal pour les repas de fin d’année.
+
+Thème : Noël
+
+Régime : Classique
+
+Entrées possibles :
+
+Foie gras maison (allergènes : lactose)
+
+Velouté de potimarron (allergènes : lactose)
+
+Plats possibles :
+
+Suprême de volaille, sauce forestière (allergènes : lactose)
+
+Filet de saumon, beurre citronné (allergènes : poisson, lactose)
+
+Desserts possibles :
+
+Bûche chocolat noisette (allergènes : gluten, fruits à coque, lactose)
+
+Nombre minimum de personnes : 10
+
+Prix pour le minimum : 480 €
+
+Conditions : commande minimum 14 jours avant – stockage au frais requis
+
+Stock disponible : 5 commandes
+
+
+
+🍽️ MENU 2 — Noël Végétarien
+
+Description : Alternative festive sans viande, tout aussi généreuse.
+
+Thème : Noël
+
+Régime : Végétarien
+
+Entrées possibles :
+
+Tarte fine légumes d’hiver (allergènes : gluten)
+
+Plats possibles :
+
+Risotto aux champignons (allergènes : lactose)
+
+Desserts possibles :
+
+Bûche fruits rouges (allergènes : gluten, lactose)
+
+Nombre minimum de personnes : 8
+
+Prix pour le minimum : 360 €
+
+Conditions : commande 10 jours avant
+
+Stock disponible : 6 commandes
+
+🍽️ MENU 3 — Pâques Tradition
+
+Description : Menu familial inspiré des grandes tablées de printemps.
+
+Thème : Pâques
+
+Régime : Classique
+
+Entrées possibles :
+
+Œufs mimosa (allergènes : œufs, moutarde)
+
+Plats possibles :
+
+Gigot d’agneau, jus réduit (aucun allergène majeur)
+
+Desserts possibles :
+
+Nid de Pâques chocolat (allergènes : gluten, lactose)
+
+Nombre minimum de personnes : 10
+
+Prix pour le minimum : 450 €
+
+Conditions : commande 10 jours avant
+
+Stock disponible : 8 commandes
+
+🍽️ MENU 4 — Classique Gourmand
+
+Description : Menu polyvalent pour tout type d’événement.
+
+Thème : Classique
+
+Régime : Classique
+
+Entrées possibles :
+
+Salade de saison (allergènes : fruits à coque)
+
+Plats possibles :
+
+Bœuf mijoté, légumes fondants (aucun allergène majeur)
+
+Desserts possibles :
+
+Tarte aux pommes (allergènes : gluten)
+
+Nombre minimum de personnes : 6
+
+Prix pour le minimum : 270 €
+
+Conditions : commande 7 jours avant
+
+Stock disponible : 10 commandes
+
+🍽️ MENU 5 — Vegan Essentiel
+
+Description : Cuisine végétale savoureuse et équilibrée.
+
+Thème : Classique
+
+Régime : Vegan
+
+Entrées possibles :
+
+Houmous & légumes croquants (allergènes : sésame)
+
+Plats possibles :
+
+Curry de légumes au lait de coco (allergènes : aucun)
+
+Desserts possibles :
+
+Salade de fruits frais (aucun allergène)
+
+Nombre minimum de personnes : 6
+
+Prix pour le minimum : 300 €
+
+Conditions : commande 5 jours avant
+
+Stock disponible : 7 commandes
+
+🍽️ MENU 6 — Événement Entreprise
+
+Description : Menu pratique et élégant pour réunions et séminaires.
+
+Thème : Événement
+
+Régime : Mixte
+
+Entrées possibles :
+
+Verrines salées (allergènes variables)
+
+Plats possibles :
+
+Suprême de poulet / alternative végétarienne
+
+Desserts possibles :
+
+Assortiment de mignardises (allergènes : gluten, lactose)
+
+Nombre minimum de personnes : 15
+
+Prix pour le minimum : 675 €
+
+Conditions : commande 7 jours avant
+
+Stock disponible : 12 commandes
+
+🍽️ MENU 7 — Printemps Fraîcheur
+
+Description : Menu léger mettant à l’honneur les produits de saison.
+
+Thème : Saisonnier
+
+Régime : Mixte
+
+Entrées possibles :
+
+Asperges vinaigrette (moutarde)
+
+Plats possibles :
+
+Poisson du jour, légumes verts (poisson)
+
+Desserts possibles :
+
+Fraises au sucre et menthe (aucun allergène)
+
+Nombre minimum de personnes : 8
+
+Prix pour le minimum : 360 €
+
+Conditions : commande 6 jours avant
+
+Stock disponible : 9 commandes
+
+🍽️ MENU 8 — Buffet Convivial
+
+Description : Menu libre et généreux, idéal pour les grandes tablées.
+
+Thème : Événement
+
+Régime : Classique
+
+Entrées possibles :
+
+Charcuterie & fromages (lactose)
+
+Plats possibles :
+
+Quiches variées (gluten, œufs, lactose)
+
+Desserts possibles :
+
+Cakes maison (gluten)
+
+Nombre minimum de personnes : 20
+
+Prix pour le minimum : 800 €
+
+Conditions : commande 10 jours avant
+
+Stock disponible : 6 commandes
+
+🍽️ MENU 9 — Sans Gluten
+
+Description : Menu adapté aux intolérances, sans compromis sur le goût.
+
+Thème : Classique
+
+Régime : Sans gluten
+
+Entrées possibles :
+
+Salade composée (aucun allergène)
+
+Plats possibles :
+
+Poulet rôti, pommes de terre (aucun allergène)
+
+Desserts possibles :
+
+Crème dessert maison (lactose)
+
+Nombre minimum de personnes : 6
+
+Prix pour le minimum : 330 €
+
+Conditions : commande 7 jours avant
+
+Stock disponible : 5 commandes
+
+🍽️ MENU 10 — Sur-Mesure Signature
+
+Description : Menu personnalisable selon vos envies et contraintes.
+
+Thème : Sur-mesure
+
+Régime : Tous
+
+Entrées / Plats / Desserts :
+
+Sélection à définir avec le client
+
+Allergènes précisés à la validation
+
+Nombre minimum de personnes : 10
+
+Prix pour le minimum : sur devis
+
+Conditions : commande minimum 3 semaines avant
+
+Stock disponible : 3 commandes

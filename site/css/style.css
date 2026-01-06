@@ -186,6 +186,10 @@ ul#navHamburger.hidden{
     display: none;
 }
 
+.nav-ancre-responsive{
+    display: none;
+}
+
 /* style carousel */
 
 section.hero{
@@ -579,14 +583,28 @@ table.info-info th.h{
     }
 
 
-    ul.nav-classic li{
+    ul.nav-classic{
         display: none;
     }
 
+    .nav-ancre{
+        display: none;
+    }
+
+    
     img.logo-header-2{
         display:none;
     }
 
+    .carousel{
+        height: auto;
+        border-radius: 0rem;
+    }
+
+    .carousel-logo{
+        width: 200px;
+    }
+    
     #boutonHamburger{
         background-color: #E8DFD2;
         border : none;
@@ -605,6 +623,22 @@ table.info-info th.h{
         animation: fadeIn 0.5s ease-out;
     }
 
+    ul#navHamburger li{
+        padding: 2rem;
+    }
+
+    .nav-ancre-responsive{
+        display: flex;
+        flex-direction: row;
+        white-space: nowrap;
+        margin-bottom: 1rem;
+    }
+
+
+    .nav-ancre-responsive li a{
+        color: #A37C4D;
+        padding: 1rem 1rem;
+    }
 
     .contenue-histoire, .texte-histoire{
         margin:2rem;
