@@ -41,6 +41,12 @@
        <img class="logo-header-2" src="img/logoblanc_cercle_transparent_150.png">
     </header>
     <main>
+        <div class="titre-page">
+            <h1 class="titre-page">NOS MENUS</h1>
+            <div class="trait-titre-page"></div>
+            <p class="titre-page">Marchandise enlevée au magasin.</br>
+            Livraison : prix selon distance.</p>
+        </div>
 
         
     </main>

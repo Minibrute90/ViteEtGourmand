@@ -40,6 +40,16 @@ h1{
     color:#4A3F36;
 }
 
+h1.titre-page{
+    text-align: center;
+    font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #bb8a23;
+    margin:4rem;
+    letter-spacing: 0.2rem;
+    font-size: 6.4rem;
+}
+
 h2{
     padding: 0 4rem;
     font-size: 2.8rem;
@@ -75,6 +85,12 @@ h4{
 .trait{
     width:40px;
     border-bottom:1px solid #4B3A2F;
+}
+
+.trait-titre-page{
+    margin:0 auto;
+    width: 610px;
+    border-bottom:1px solid #bb8a23;
 }
 
 button{
@@ -483,6 +499,18 @@ section.avis{
     font-family:'inter', Arial, Helvetica, sans-serif;
     font-weight: 200;
     font-size: 1.6rem;
+}
+
+/*style page menus*/
+
+p.titre-page{
+    text-align: center;
+    padding: 2rem;
+    font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #6C5F53;
+    letter-spacing: 0.2rem;
+    font-size: 1.4rem;
 }
 
 /*style footer*/
