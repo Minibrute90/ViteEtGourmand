@@ -537,7 +537,14 @@ section.liste-menu{
 
 button.plus-deroulant{
     border: none;
-    background-color: none;
+    background-color:#E8DFD2;
+    color: #bb8a23;
+    
+}
+
+.trait-titre-menu{
+    width: 1360px;
+    border-bottom: #bb8a23 solid 1px;
 }
 
 /*style footer*/

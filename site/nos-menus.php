@@ -55,9 +55,9 @@
                     do{
                         echo "<div class='ensemble-titre-menu'>";
                             echo "<div class='titre-menu'>".$resultatMenu->titre."</div>";
-                            echo "<button div='plus-deroulant' clas='plus-deroulant'>+</button>";
-                            echo "<div class='trait-titre-menu'></div>";
+                            echo "<button div='plus-deroulant' class='plus-deroulant'>+</button>";
                         echo "</div>";
+                        echo "<div class='trait-titre-menu'></div>";
                         echo "<div class='description-menu'>".$resultatMenu->description."</div>"; 
                         }
                     while ($resultatMenu = $bddMenu->fetch());
