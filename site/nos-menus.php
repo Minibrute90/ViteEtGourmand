@@ -53,12 +53,14 @@
                 $bddMenu->setFetchMode(PDO::FETCH_OBJ);
                 if ($resultatMenu = $bddMenu->fetch()){
                     do{
-                        echo "<div class='ensemble-titre-menu'>";
-                            echo "<div class='titre-menu'>".$resultatMenu->titre."</div>";
-                            echo "<button div='plus-deroulant' class='plus-deroulant'>+</button>";
+                        echo "<div class='bloc-menu'>";
+                            echo "<div class='ensemble-titre-menu'>";
+                                echo "<div class='titre-menu'>".$resultatMenu->titre."</div>";
+                                echo "<button div='plus-deroulant' class='plus-deroulant'>+</button>";
+                            echo "</div>";
+                            echo "<div class='trait-titre-menu'></div>";
+                            echo "<div class='description-menu'>".$resultatMenu->description."</div>";
                         echo "</div>";
-                        echo "<div class='trait-titre-menu'></div>";
-                        echo "<div class='description-menu'>".$resultatMenu->description."</div>"; 
                         }
                     while ($resultatMenu = $bddMenu->fetch());
                     $bddMenu->closeCursor();

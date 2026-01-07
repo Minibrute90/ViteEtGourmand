@@ -527,24 +527,40 @@ section.liste-menu{
     justify-content: space-between;
 }
 
+.bloc-menu{
+    margin:2rem 0rem;
+}
+
 .titre-menu{
     font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
     font-style: italic;
     font-weight: 500;
     font-size: 3.2rem;
     color:#bb8a23;
+    letter-spacing: 0.2rem;
 }
 
 button.plus-deroulant{
     border: none;
     background-color:#E8DFD2;
     color: #bb8a23;
-    
+    font-family:'inter', Arial, Helvetica, sans-serif;
+    font-size: 5rem;
 }
+
 
 .trait-titre-menu{
     width: 1360px;
-    border-bottom: #bb8a23 solid 1px;
+    border-bottom: #4B3A2F solid 1px;
+}
+
+.description-menu{
+    font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: 500;
+    color: #4B3A2F;
+    font-size: 2rem;
+    letter-spacing: 0.2rem;
 }
 
 /*style footer*/
