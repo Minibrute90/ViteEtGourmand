@@ -47,6 +47,24 @@
             <p class="titre-page">Marchandise enlevée au magasin.</br>
             Livraison : prix selon distance.</p>
         </div>
+        <section class="liste-menu">
+            <?php
+                $bddMenu=$connexionBdd->query(" SELECT * FROM menus "); 
+                $bddMenu->setFetchMode(PDO::FETCH_OBJ);
+                if ($resultatMenu = $bddMenu->fetch()){
+                    do{
+                        echo "<div class='ensemble-titre-menu'>";
+                            echo "<div class='titre-menu'>".$resultatMenu->titre."</div>";
+                            echo "<button div='plus-deroulant' clas='plus-deroulant'>+</button>";
+                            echo "<div class='trait-titre-menu'></div>";
+                        echo "</div>";
+                        echo "<div class='description-menu'>".$resultatMenu->description."</div>"; 
+                        }
+                    while ($resultatMenu = $bddMenu->fetch());
+                    $bddMenu->closeCursor();
+                    } 
+                ?>
+        </section>
 
         
     </main>

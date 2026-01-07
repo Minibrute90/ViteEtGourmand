@@ -513,6 +513,33 @@ p.titre-page{
     font-size: 1.4rem;
 }
 
+section.liste-menu{
+    display: flex;
+    flex-direction: column;
+    margin:0 auto;
+    max-width: 1360px;
+    padding:4rem 0;
+}
+
+.ensemble-titre-menu{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.titre-menu{
+    font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 3.2rem;
+    color:#bb8a23;
+}
+
+button.plus-deroulant{
+    border: none;
+    background-color: none;
+}
+
 /*style footer*/
 
 footer{
