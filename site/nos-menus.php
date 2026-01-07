@@ -54,12 +54,45 @@
                 if ($resultatMenu = $bddMenu->fetch()){
                     do{
                         echo "<div class='bloc-menu'>";
+
                             echo "<div class='ensemble-titre-menu'>";
                                 echo "<div class='titre-menu'>".$resultatMenu->titre."</div>";
-                                echo "<button div='plus-deroulant' class='plus-deroulant'>+</button>";
+                                echo "<button id='plus-deroulant' class='plus-deroulant'>+</button>";
                             echo "</div>";
+
                             echo "<div class='trait-titre-menu'></div>";
                             echo "<div class='description-menu'>".$resultatMenu->description."</div>";
+                            
+                            echo "<div class='galerie-menu'>";
+                                for ($p = 1; $p <= 3; $p++) {
+                                    echo    "<img 
+                                            class='img-menu'
+                                            loading='lazy'
+                                            src='menu_image.php?id={$resultatMenu->menu_id}&p=$p'
+                                            alt='Menu " . htmlspecialchars($resultatMenu->titre) . " - photo $p'
+                                            >";
+                                        }
+                            echo "</div>";
+
+                            echo "<div class='rappel-menu'>";
+                                echo "Regime : ". $resultatMenu->regime;
+                                echo "Le menu « ".$resultatMenu->titre." » est composé de :";
+                            echo "</div>";
+
+                            echo "<div class='detail-menu'>";
+                                echo "$resultatMenu->entree";
+                                echo "$resultatMenu->plat";
+                                echo "$resultatMenu->dessert";
+                            echo "</div>";
+
+                            echo "<div class='info-menu'>";
+                                echo "$resultatMenu->allergene";
+                                echo "$resultatMenu->Nombre_minimum_de_personnes";
+                                echo "$resultatMenu->prix" . " €.";
+                                echo "$resultatMenu->conditions";
+                                echo "$resultatMenu->stock" . " commandes.";
+                            echo "</div>";
+
                         echo "</div>";
                         }
                     while ($resultatMenu = $bddMenu->fetch());

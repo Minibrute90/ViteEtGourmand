@@ -93,29 +93,7 @@ h4{
     border-bottom:1px solid #bb8a23;
 }
 
-button{
-    cursor: pointer;
-}
 
-.CTANosmenus{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}   
-
-button#CTANosmenus{
-    margin: 0 auto;
-    border:none;
-    background-color:#A37C4D;   
-    border-radius: 50px;
-    width: 290px;
-    height: 50px;
-    color:#ffffff;
-    font-family:'inter', Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    font-size: 1.6rem;
-    box-shadow: 0px 4px 4px 0px rgba(96, 90, 84, 0.25);      
-}
 
 
 /* style header */
@@ -528,6 +506,8 @@ section.liste-menu{
 }
 
 .bloc-menu{
+    display: flex;
+    flex-direction: column;
     margin:2rem 0rem;
 }
 
@@ -561,6 +541,18 @@ button.plus-deroulant{
     color: #4B3A2F;
     font-size: 2rem;
     letter-spacing: 0.2rem;
+}
+
+.galerie-menu{
+    margin:2rem 0rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.img-menu{
+    border-radius: 2rem;
+    box-shadow: 0px 4px 4px 0px rgba(96, 90, 84, 0.25);
 }
 
 /*style footer*/

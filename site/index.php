@@ -95,7 +95,7 @@
                     </p>
                     <div class="CTANosmenus">
                         <h3>Pour toutes vos commandes</h3>
-                        <button id="CTANosmenus" href="">Venez découvrir nos menus</button>
+                        <a href="nos-menus.php">Venez découvrir nos menus</a>
                     </div>
                 </div>
             </div>
@@ -180,7 +180,7 @@
             </div>
             <div class="CTANosmenus">
                 <h3 class="h3-signature">Pour toutes vos commandes</h3>
-                <button class="signatute" id="CTANosmenus" href="">Venez découvrir nos menus</button>
+                <a href="nos-menus.php">Venez découvrir nos menus</a>
             </div>
         </section>
 
