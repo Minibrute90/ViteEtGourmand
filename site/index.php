@@ -93,10 +93,10 @@
                         <b style="color:#BB8A23">aventure familiale</b> est devenu 
                         <b style="color:#BB8A23">une référence locale</b>.
                     </p>
-                    <div class="CTANosmenus">
-                        <h3>Pour toutes vos commandes</h3>
-                        <a href="nos-menus.php">Venez découvrir nos menus</a>
-                    </div>
+                    <h3>Pour toutes vos commandes</h3>
+                        <div class="placement-CTA-page-menu">
+                            <a class="CTA-page-menu" href="nos-menus.php">Venez découvrir nos menus</a>
+                        </div>
                 </div>
             </div>
             <p class ="accroche-histoire">
@@ -178,9 +178,9 @@
                     </div>
                 </div>
             </div>
-            <div class="CTANosmenus">
-                <h3 class="h3-signature">Pour toutes vos commandes</h3>
-                <a href="nos-menus.php">Venez découvrir nos menus</a>
+            <h3 class="h3-signature">Pour toutes vos commandes</h3>
+            <div class="placement-CTA-page-menu">
+                <a class="CTA-page-menu" href="nos-menus.php">Venez découvrir nos menus</a>
             </div>
         </section>
 

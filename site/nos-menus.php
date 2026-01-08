@@ -75,22 +75,26 @@
                             echo "</div>";
 
                             echo "<div class='rappel-menu'>";
-                                echo "Regime : ". $resultatMenu->regime;
-                                echo "Le menu « ".$resultatMenu->titre." » est composé de :";
+                                echo "<div>"; echo "Regime : ". $resultatMenu->regime; echo "</div>";
+                                echo "<div>"; echo "Le menu « ".$resultatMenu->titre." » est composé de :"; echo "</div>";
                             echo "</div>";
 
                             echo "<div class='detail-menu'>";
-                                echo "$resultatMenu->entree";
-                                echo "$resultatMenu->plat";
-                                echo "$resultatMenu->dessert";
+                                 echo "<div>"; echo "$resultatMenu->entree"; echo "</div>";
+                                 echo "<div>"; echo "$resultatMenu->plat"; echo "</div>";
+                                 echo "<div>"; echo "$resultatMenu->dessert"; echo "</div>";
                             echo "</div>";
 
                             echo "<div class='info-menu'>";
-                                echo "$resultatMenu->allergene";
-                                echo "$resultatMenu->Nombre_minimum_de_personnes";
-                                echo "$resultatMenu->prix" . " €.";
-                                echo "$resultatMenu->conditions";
-                                echo "$resultatMenu->stock" . " commandes.";
+                                 echo "<div>"; echo "$resultatMenu->allergene"; echo "</div>";
+                                 echo "<div>"; echo " Pour " . "$resultatMenu->Nombre_minimum_de_personnes" . " Participants."; echo "</div>";
+                                 echo "<div>"; echo " Prix : " . "$resultatMenu->prix" . " €."; echo "</div>";
+                                 echo "<div>"; echo "$resultatMenu->conditions"; echo "</div>";
+                                 echo "<div>"; echo " il nous reste " . "$resultatMenu->stock" . " commandes."; echo "</div>";
+                            echo "</div>";
+
+                            echo "<div class='placement-CTA-page-menu'>";
+                                echo "<a class='CTA-page-menu' href='nos-menus.php'>Commander</a>";
                             echo "</div>";
 
                         echo "</div>";

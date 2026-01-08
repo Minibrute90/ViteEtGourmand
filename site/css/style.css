@@ -93,6 +93,27 @@ h4{
     border-bottom:1px solid #bb8a23;
 }
 
+.placement-CTA-page-menu{
+    margin: 2rem auto;
+}
+
+a.CTA-page-menu{
+    color:#E8DFD2;
+    padding : 2rem 2rem;
+    background-color: #bb8a23;
+    border-radius: 2rem;
+    margin:2rem auto;
+    font-size: 1.6rem;
+    box-shadow: 0px 4px 4px 0px rgba(96, 90, 84, 0.25);
+}
+
+a.CTA-page-menu:hover{
+    color:#bb8a23;
+    background-color: #E8DFD2;
+    animation: fadeIn 1s ease-out;
+    border: #bb8a23 1px solid;
+}
+
 
 
 
@@ -144,7 +165,8 @@ ul.nav-classic li.active a, ul#navHamburger li.active a{
 }
 
 ul.nav-classic li a:hover, ul#navHamburger li a:hover{
-    color: #A37C4D; 
+    color: #A37C4D;
+    animation: fadeIn 0.5s ease-out; 
 }
 
 .nav-ancre {
@@ -170,6 +192,7 @@ ul.nav-classic li a:hover, ul#navHamburger li a:hover{
 
 .nav-ancre a:hover{
     color:#B45B36;
+    animation: fadeIn 0.5s ease-out;
 }
 
 #boutonHamburger{
@@ -265,6 +288,8 @@ section.notre-histoire{
 .texte-histoire{
     margin:0rem 4rem 0rem 2rem;
     flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
     align-content: center;
 }
 
@@ -287,6 +312,7 @@ p.accroche-histoire{
     letter-spacing: 0.2rem;
     color:#B45B36;
 }
+
 
 /* style Notre Équipe */
 
@@ -553,6 +579,42 @@ button.plus-deroulant{
 .img-menu{
     border-radius: 2rem;
     box-shadow: 0px 4px 4px 0px rgba(96, 90, 84, 0.25);
+}
+
+.rappel-menu, .detail-menu, .info-menu {
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.rappel-menu div{
+    font-family:'inter', Arial, Helvetica, sans-serif;
+    color:#4B3A2F;
+    margin:1rem;
+    font-size: 1.6rem;
+    letter-spacing: 0.2rem;
+    font-weight: 500;   
+}
+
+.detail-menu div{
+    font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
+    font-style: italic;
+    color:#4B3A2F;
+    margin:0.5rem;
+    font-size: 1.6rem;
+    letter-spacing: 0.2rem;
+    font-weight: 500;  
+}
+
+.info-menu div{
+    margin-bottom: 1rem;
+    font-family:'inter', Arial, Helvetica, sans-serif;
+    color:#4B3A2F;
+    margin:0.5rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.2rem;
+    font-weight:300;
 }
 
 /*style footer*/
