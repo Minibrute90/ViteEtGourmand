@@ -57,46 +57,47 @@
 
                             echo "<div class='ensemble-titre-menu'>";
                                 echo "<div class='titre-menu'>".$resultatMenu->titre."</div>";
-                                echo "<button id='plus-deroulant' class='plus-deroulant'>+</button>";
+                                echo "<button id='clickContenueMenu' name='clickContenueMenu' class='btContenueMenu'>+</button>";
                             echo "</div>";
 
                             echo "<div class='trait-titre-menu'></div>";
                             echo "<div class='description-menu'>".$resultatMenu->description."</div>";
                             
-                            echo "<div class='galerie-menu'>";
-                                for ($p = 1; $p <= 3; $p++) {
-                                    echo    "<img 
-                                            class='img-menu'
-                                            loading='lazy'
-                                            src='menu_image.php?id={$resultatMenu->menu_id}&p=$p'
-                                            alt='Menu " . htmlspecialchars($resultatMenu->titre) . " - photo $p'
-                                            >";
-                                        }
-                            echo "</div>";
+                            echo "<div id='contenueMenu' class='hidden'>";
+                                echo "<div class='galerie-menu'>";
+                                    for ($p = 1; $p <= 3; $p++) {
+                                        echo    "<img 
+                                                class='img-menu'
+                                                loading='lazy'
+                                                src='menu_image.php?id={$resultatMenu->menu_id}&p=$p'
+                                                alt='Menu " . htmlspecialchars($resultatMenu->titre) . " - photo $p'
+                                                >";
+                                            }
+                                echo "</div>";
 
-                            echo "<div class='rappel-menu'>";
-                                echo "<div>"; echo "Regime : ". $resultatMenu->regime; echo "</div>";
-                                echo "<div>"; echo "Le menu « ".$resultatMenu->titre." » est composé de :"; echo "</div>";
-                            echo "</div>";
+                                echo "<div class='rappel-menu'>";
+                                    echo "<div>"; echo "Regime : ". $resultatMenu->regime; echo "</div>";
+                                    echo "<div>"; echo "Le menu « ".$resultatMenu->titre." » est composé de :"; echo "</div>";
+                                echo "</div>";
 
-                            echo "<div class='detail-menu'>";
-                                 echo "<div>"; echo "$resultatMenu->entree"; echo "</div>";
-                                 echo "<div>"; echo "$resultatMenu->plat"; echo "</div>";
-                                 echo "<div>"; echo "$resultatMenu->dessert"; echo "</div>";
-                            echo "</div>";
+                                echo "<div class='detail-menu'>";
+                                    echo "<div>"; echo "$resultatMenu->entree"; echo "</div>";
+                                    echo "<div>"; echo "$resultatMenu->plat"; echo "</div>";
+                                    echo "<div>"; echo "$resultatMenu->dessert"; echo "</div>";
+                                echo "</div>";
 
-                            echo "<div class='info-menu'>";
-                                 echo "<div>"; echo "$resultatMenu->allergene"; echo "</div>";
-                                 echo "<div>"; echo " Pour " . "$resultatMenu->Nombre_minimum_de_personnes" . " Participants."; echo "</div>";
-                                 echo "<div>"; echo " Prix : " . "$resultatMenu->prix" . " €."; echo "</div>";
-                                 echo "<div>"; echo "$resultatMenu->conditions"; echo "</div>";
-                                 echo "<div>"; echo " il nous reste " . "$resultatMenu->stock" . " commandes."; echo "</div>";
-                            echo "</div>";
+                                echo "<div class='info-menu'>";
+                                    echo "<div>"; echo "$resultatMenu->allergene"; echo "</div>";
+                                    echo "<div>"; echo " Pour " . "$resultatMenu->Nombre_minimum_de_personnes" . " Participants."; echo "</div>";
+                                    echo "<div>"; echo " Prix : " . "$resultatMenu->prix" . " €."; echo "</div>";
+                                    echo "<div>"; echo "$resultatMenu->conditions"; echo "</div>";
+                                    echo "<div>"; echo " il nous reste " . "$resultatMenu->stock" . " commandes."; echo "</div>";
+                                echo "</div>";
 
-                            echo "<div class='placement-CTA-page-menu'>";
-                                echo "<a class='CTA-page-menu' href='nos-menus.php'>Commander</a>";
+                                echo "<div class='placement-CTA-page-menu'>";
+                                    echo "<a class='CTA-page-menu' href='nos-menus.php'>Commander</a>";
+                                echo "</div>";
                             echo "</div>";
-
                         echo "</div>";
                         }
                     while ($resultatMenu = $bddMenu->fetch());
@@ -172,6 +173,15 @@
 
         boutonHamburger.addEventListener('click', () => {
         navHamburger .classList.toggle("hidden");
+        });
+    </script>
+
+    <script>
+        const btContenueMenu = document.getElementById("clickContenueMenu");
+        const contenueMenu = document.getElementById("contenueMenu");
+
+        btContenueMenu.addEventListener('click', () => {
+        contenueMenu.classList.toggle("hidden");
         });
     </script>
 
