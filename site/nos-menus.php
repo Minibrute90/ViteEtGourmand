@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <title>Vite & Gourmand - Accueil</title>
+    <title>Vite & Gourmand - Nos menus</title>
 
 </head>
 
@@ -57,13 +57,13 @@
 
                             echo "<div class='ensemble-titre-menu'>";
                                 echo "<div class='titre-menu'>".$resultatMenu->titre."</div>";
-                                echo "<button id='clickContenueMenu' name='clickContenueMenu' class='btContenueMenu'>+</button>";
+                                echo "<button type='button' class='btContenueMenu' data-id='".$resultatMenu->menu_id."'>+</button>";
                             echo "</div>";
 
                             echo "<div class='trait-titre-menu'></div>";
                             echo "<div class='description-menu'>".$resultatMenu->description."</div>";
                             
-                            echo "<div id='contenueMenu' class='hidden'>";
+                            echo "<div class='contenu-menu' id='contenu-".$resultatMenu->menu_id."' style='display:none;'>";
                                 echo "<div class='galerie-menu'>";
                                     for ($p = 1; $p <= 3; $p++) {
                                         echo    "<img 
@@ -95,7 +95,7 @@
                                 echo "</div>";
 
                                 echo "<div class='placement-CTA-page-menu'>";
-                                    echo "<a class='CTA-page-menu' href='nos-menus.php'>Commander</a>";
+                                    echo "<a class='CTA-page-menu' href='passerunecommande.php'>Commander</a>";
                                 echo "</div>";
                             echo "</div>";
                         echo "</div>";
@@ -177,11 +177,15 @@
     </script>
 
     <script>
-        const btContenueMenu = document.getElementById("clickContenueMenu");
-        const contenueMenu = document.getElementById("contenueMenu");
+        document.querySelectorAll('.btContenueMenu').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const id = btn.dataset.id;
+                const bloc = document.getElementById('contenu-' + id);
 
-        btContenueMenu.addEventListener('click', () => {
-        contenueMenu.classList.toggle("hidden");
+                const opened = bloc.style.display === 'block';
+                bloc.style.display = opened ? 'none' : 'block';
+                btn.textContent = opened ? '+' : '-';
+            });
         });
     </script>
 

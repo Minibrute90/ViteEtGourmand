@@ -31,7 +31,7 @@ body{
 }
 
 h1{
-    padding: 0 2rem;
+    text-align: center;
     font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
     letter-spacing: 0.5rem;
     font-size: 3.2rem;
@@ -41,7 +41,7 @@ h1{
 }
 
 h1.titre-page{
-    text-align: center;
+    margin:0 auto;
     font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
     font-weight: bold;
     color: #bb8a23;
@@ -94,6 +94,7 @@ h4{
 }
 
 .placement-CTA-page-menu{
+    padding-top: 2rem;
     margin: 2rem auto;
 }
 
@@ -356,10 +357,6 @@ p.accroche-equipe{
 }
 
 
-img.portrait{
-    width: 50%;
-}
-
 .nom-portrait{
     font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
     font-size: 5.2rem;
@@ -590,6 +587,14 @@ button.btContenueMenu{
     text-align: center;
 }
 
+.contenu-menu{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    animation: fadeIn 2s ease-out;
+}
+
+
 .info-menu{
     margin: 2rem auto;
     width: 300px;
@@ -626,9 +631,7 @@ button.btContenueMenu{
     font-weight:300;
 }
 
-.hidden{
-    display: none;
-}
+
 
 /*style footer*/
 
@@ -832,6 +835,28 @@ table.info-info th.h{
 
     .carte-avis{
         margin: 2rem 0;
+    }
+
+    
+
+    .ensemble-titre-menu{
+        margin:0rem 1rem;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .description-menu{
+        margin: 0rem 1rem;
+        font-size: 1.6rem;
+        text-align: center;
+    }
+
+    .galerie-menu{
+    flex-direction: column;
+    justify-content: center;
+}
+    .img-menu{
+        margin: 1rem 1rem;
     }
 
     .info-entreprise{
