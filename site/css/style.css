@@ -356,6 +356,9 @@ p.accroche-equipe{
     align-items: center;
 }
 
+.portrait{
+    width: 70%;
+}
 
 .nom-portrait{
     font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
@@ -505,6 +508,26 @@ section.avis{
 }
 
 /*style page menus*/
+
+
+.header-page-menu{
+    display: flex;
+    flex-direction: row;
+    max-width: 1360px;
+    justify-content: space-between;
+}
+
+.filtre-menus{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.titre-page-menu{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
 
 p.titre-page{
     text-align: center;
@@ -837,6 +860,10 @@ table.info-info th.h{
         margin: 2rem 0;
     }
 
+    .header-page-menu{
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
     
 
     .ensemble-titre-menu{

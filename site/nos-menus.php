@@ -41,11 +41,28 @@
        <img class="logo-header-2" src="img/logoblanc_cercle_transparent_150.png">
     </header>
     <main>
-        <div class="titre-page">
-            <h1 class="titre-page">NOS MENUS</h1>
-            <div class="trait-titre-page"></div>
-            <p class="titre-page">Marchandise enlevée au magasin.</br>
-            Livraison : prix selon distance.</p>
+        <div class="header-page-menu">
+            <div class="filtre-menus">
+                <div class="titre-filtre">Affinez votre recherche</div>
+                <div class="price-filter">
+                    <div class="price-values">
+                        <span id="minPrice">270€</span>
+                        <span id="maxPrice">800€</span>
+                        <div class="range-slider">
+                            <input type="range" id="rangeMin" min="0" max="10000" value="270">
+                            <input type="range" id="rangeMax" min="0" max="10000" value="800">
+                            <div class="slider-track"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="titre-page-menu">
+                <h1 class="titre-page">NOS MENUS</h1>
+                <div class="trait-titre-page"></div>
+                <p class="titre-page">Marchandise enlevée au magasin.</br>
+                Livraison : prix selon distance.</p>
+             </div>
         </div>
         <section class="liste-menu">
             <?php
