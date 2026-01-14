@@ -42,27 +42,70 @@
     </header>
     <main>
         <div class="header-page-menu">
-            <div class="filtre-menus">
-                <div class="titre-filtre">Affinez votre recherche</div>
-                <div class="price-filter">
-                    <div class="price-values">
-                        <span id="minPrice">270€</span>
-                        <span id="maxPrice">800€</span>
-                        <div class="range-slider">
-                            <input type="range" id="rangeMin" min="0" max="10000" value="270">
-                            <input type="range" id="rangeMax" min="0" max="10000" value="800">
-                            <div class="slider-track"></div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
             <div class="titre-page-menu">
                 <h1 class="titre-page">NOS MENUS</h1>
                 <div class="trait-titre-page"></div>
-                <p class="titre-page">Marchandise enlevée au magasin.</br>
-                Livraison : prix selon distance.</p>
-             </div>
+                <p class="titre-page">Marchandise enlevée au magasin. Livraison : prix selon distance.</p>
+                <div class="titre-filtre">Affinez votre recherche</div>
+            </div>
+            <div class="filtre-menus">
+                <div class="filtre-colonne">
+                    <div class="block-filtre">
+                        <div class="entete-filtre">
+                            <div class="titre-entete-filtre">Prix</div>
+                        </div>
+                        <div class="valeurs-filtre">
+                            <span id="valeurMin">270€</span>
+                            <span id="valeurMax">800€</span>
+                        </div>
+                        <div class="outil-filtre">
+                            <input type="range" id="rangeValeur" min="270" max="800">
+                            <div class="slider-track"></div>
+                        </div>
+                    </div>
+                    <div class="block-filtre">
+                        <div class="entete-filtre">
+                            <div class="titre-entete-filtre">Thèmes</div>
+                            <div class="choix">Choisir 1 ou plusieurs</div>
+                        </div>
+                        <div class="outil-filtre">
+                            <input type="checkbox" id="noel" name="noel"><label for ="noel">Noël</label>
+                            <input type="checkbox" id="paques" name="paques"><label for ="paques">Pâques</label>
+                            <input type="checkbox" id="classique" name="classique"><label for ="classique">Classique</label>
+                            <input type="checkbox" id="evenement" name="evenement"><label for ="evenement">Événement</label>
+                            <input type="checkbox" id="saisonnier" name="saisonnier"><label for ="saisonnier">Saisonnier</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="filtre-colonne">
+                    <div class="block-filtre">
+                        <div class="entete-filtre">
+                            <div class="titre-entete-filtre">Nombre de personnes minimum</div>
+                        </div>
+                        <div class="valeurs-filtre">
+                            <span id="valeurMin">10</span>
+                            <span id="valeurMax">40</span>
+                        </div>
+                        <div class="outil-filtre">
+                            <input type="range" id="rangeValeur" min="10" max="40">
+                            <div class="slider-track"></div>
+                        </div>
+                    </div>
+                    <div class="block-filtre">
+                        <div class="entete-filtre">
+                            <div class="titre-entete-filtre">Régime</div>
+                            <div class="choix">Choisir 1 ou plusieurs</div>
+                        </div>
+                        <div class="outil-filtre">
+                            <input type="checkbox" id="classique" name="classique"><label for ="classique">Classique</label>
+                            <input type="checkbox" id="vegetarien" name="vegetarien"><label for ="vegetarien">Végétarien</label>
+                            <input type="checkbox" id="vegan" name="vegan"><label for ="vegan">Végan</label>
+                            <input type="checkbox" id="mixte" name="mixte"><label for ="mixte">Mixte</label>
+                            <input type="checkbox" id="sansgluten" name="sansgluten"><label for ="sansgluten">Sans gluten</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <section class="liste-menu">
             <?php
