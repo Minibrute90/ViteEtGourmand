@@ -560,7 +560,28 @@ section.avis{
 
 }
 
+.range-container {
+    position: relative;
+    width: 100%;
+}
+
+#rangeValeurPrix {
+    position: absolute; 
+    transform: translateX(-50%);
+    color:#bb8a23;
+    padding: 0.4rem 0.8rem;
+    font-size: 1.4rem;
+    pointer-events: none;
+    white-space: nowrap;    
+}
+
+
+#rangePrix {
+    width: 100%;
+}
+
 .outil-filtre{
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -569,7 +590,7 @@ section.avis{
 
 input[type=range]{
     appearance: none;
-    margin:1rem 0rem;
+    margin:3rem 0rem;
     width: 100%;
 }
  

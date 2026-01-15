@@ -52,15 +52,18 @@
                 <div class="filtre-colonne">
                     <div class="block-filtre">
                         <div class="entete-filtre">
-                            <div class="titre-entete-filtre">Prix</div>
+                            <div class="titre-entete-filtre">Montant maximum de votre budget</div>
                         </div>
-                        <div class="valeurs-filtre">
-                            <span id="valeurMin">270€</span>
-                            <span id="valeurMax">800€</span>
-                        </div>
-                        <div class="outil-filtre">
-                            <input type="range" id="rangeValeur" min="270" max="800">
-                            <div class="slider-track"></div>
+                        <div class="range-container">
+                            <div class="valeurs-filtre">
+                                <span id="valeurMin">270 €</span>
+                                <span id="valeurMax">800€</span>
+                            </div>
+                            <span id="rangeValeurPrix">10</span>
+                            <div class="outil-filtre">
+                                <input type="range" id="rangePrix" min="270" max="800" value="270">
+                                <div class="slider-track"></div>
+                            </div>
                         </div>
                     </div>
                     <div class="block-filtre">
@@ -82,13 +85,16 @@
                         <div class="entete-filtre">
                             <div class="titre-entete-filtre">Nombre de personnes minimum</div>
                         </div>
-                        <div class="valeurs-filtre">
-                            <span id="valeurMin">10</span>
-                            <span id="valeurMax">40</span>
-                        </div>
-                        <div class="outil-filtre">
-                            <input type="range" id="rangeValeur" min="10" max="40">
-                            <div class="slider-track"></div>
+                        <div class="range-container">
+                            <span id="rangeValeur">1</span>
+                            <div class="valeurs-filtre">
+                                <span id="valeurMin">10</span>
+                                <span id="valeurMax">40</span>
+                            </div>
+                            <div class="outil-filtre">
+                                <input type="range" id="range" min="10" max="40">
+                                <div class="slider-track"></div>
+                            </div>
                         </div>
                     </div>
                     <div class="block-filtre">
@@ -247,6 +253,35 @@
                 btn.textContent = opened ? '+' : '-';
             });
         });
+    </script>
+
+    <script>
+        function updateRangePrix() {
+            const min = Number(rangePrix.min);
+            const max = Number(rangePrix.max);
+            const value = Number(rangePrix.value);
+
+            const percent = (value - min) / (max - min);
+
+            const sliderWidth = rangePrix.offsetWidth;
+            const thumbSize = 18; // taille visuelle du thumb (ajuste si besoin)
+
+            let position = percent * (sliderWidth - thumbSize) + thumbSize / 2;
+
+            // 🛑 limites gauche / droite
+            const tooltipWidth = rangeValeurPrix.offsetWidth;
+            const minPos = tooltipWidth / 2;
+            const maxPos = sliderWidth - tooltipWidth / 2;
+
+            position = Math.max(minPos, Math.min(position, maxPos));
+
+            rangeValeurPrix.textContent = value + " €";
+            rangeValeurPrix.style.left = position + "px";
+        }
+
+        rangePrix.addEventListener("input", updateRangePrix);
+
+        updateRangePrix();
     </script>
 
 </html>
