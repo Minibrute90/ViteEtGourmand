@@ -565,7 +565,7 @@ section.avis{
     width: 100%;
 }
 
-#rangeValeurPrix {
+#rangeValeurPrix, #rangeValeurPersonne {
     position: absolute; 
     transform: translateX(-50%);
     color:#bb8a23;
@@ -576,7 +576,7 @@ section.avis{
 }
 
 
-#rangePrix {
+#rangePrix, #rangePersonne {
     width: 100%;
 }
 

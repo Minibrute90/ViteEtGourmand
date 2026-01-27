@@ -86,13 +86,13 @@
                             <div class="titre-entete-filtre">Nombre de personnes minimum</div>
                         </div>
                         <div class="range-container">
-                            <span id="rangeValeur">1</span>
                             <div class="valeurs-filtre">
                                 <span id="valeurMin">10</span>
                                 <span id="valeurMax">40</span>
                             </div>
+                            <span id="rangeValeurPersonne">1</span>
                             <div class="outil-filtre">
-                                <input type="range" id="range" min="10" max="40">
+                                <input type="range" id="rangePersonne" min="10" max="40" value="10">
                                 <div class="slider-track"></div>
                             </div>
                         </div>
@@ -282,6 +282,36 @@
         rangePrix.addEventListener("input", updateRangePrix);
 
         updateRangePrix();
+
+        const rangePersonne = document.getElementById("rangePersonne");
+        const rangeValeurPersonne = document.getElementById("rangeValeurPersonne");
+
+        function updateRangePersonne() {
+        const min = Number(rangePersonne.min);
+        const max = Number(rangePersonne.max);
+        const value = Number(rangePersonne.value);
+
+        const percent = (value - min) / (max - min);
+
+        const sliderWidth = rangePersonne.offsetWidth;
+        const thumbSize = 18; // ajuste si ton thumb est plus gros/petit
+
+        let position = percent * (sliderWidth - thumbSize) + thumbSize / 2;
+
+        // limites gauche / droite (pour pas que le tooltip sorte)
+        const tooltipWidth = rangeValeurPersonne.offsetWidth;
+        const minPos = tooltipWidth / 2;
+        const maxPos = sliderWidth - tooltipWidth / 2;
+
+        position = Math.max(minPos, Math.min(position, maxPos));
+
+        rangeValeurPersonne.textContent = value; // ou value + " pers."
+        rangeValeurPersonne.style.left = position + "px";
+        }
+
+        rangePersonne.addEventListener("input", updateRangePersonne);
+        window.addEventListener("resize", updateRangePersonne);
+        updateRangePersonne();
     </script>
 
 </html>
