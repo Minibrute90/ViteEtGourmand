@@ -61,7 +61,7 @@
                             </div>
                             <span id="rangeValeurPrix">10</span>
                             <div class="outil-filtre">
-                                <input type="range" id="rangePrix" min="270" max="800" value="270">
+                                <input type="range" id="rangePrix" min="270" max="800" value="800">
                                 <div class="slider-track"></div>
                             </div>
                         </div>
@@ -72,11 +72,11 @@
                             <div class="choix">Choisir 1 ou plusieurs</div>
                         </div>
                         <div class="outil-filtre">
-                            <input type="checkbox" id="noel" name="noel"><label for ="noel">Noël</label>
-                            <input type="checkbox" id="paques" name="paques"><label for ="paques">Pâques</label>
-                            <input type="checkbox" id="classique" name="classique"><label for ="classique">Classique</label>
-                            <input type="checkbox" id="evenement" name="evenement"><label for ="evenement">Événement</label>
-                            <input type="checkbox" id="saisonnier" name="saisonnier"><label for ="saisonnier">Saisonnier</label>
+                            <input type="checkbox" class="filtre-regime" value="noel"><label for ="noel">Noël</label>
+                            <input type="checkbox" class="filtre-regime" value="paques"><label for ="paques">Pâques</label>
+                            <input type="checkbox" class="filtre-regime" value="classique"><label for ="classique">Classique</label>
+                            <input type="checkbox" class="filtre-regime" value="evenement"><label for ="evenement">Événement</label>
+                            <input type="checkbox" class="filtre-regime" value="saisonnier"><label for ="saisonnier">Saisonnier</label>
                         </div>
                     </div>
                 </div>
@@ -92,7 +92,7 @@
                             </div>
                             <span id="rangeValeurPersonne">1</span>
                             <div class="outil-filtre">
-                                <input type="range" id="rangePersonne" min="10" max="40" value="10">
+                                <input type="range" id="rangePersonne" min="10" max="40" value="40">
                                 <div class="slider-track"></div>
                             </div>
                         </div>
@@ -103,11 +103,11 @@
                             <div class="choix">Choisir 1 ou plusieurs</div>
                         </div>
                         <div class="outil-filtre">
-                            <input type="checkbox" id="classique" name="classique"><label for ="classique">Classique</label>
-                            <input type="checkbox" id="vegetarien" name="vegetarien"><label for ="vegetarien">Végétarien</label>
-                            <input type="checkbox" id="vegan" name="vegan"><label for ="vegan">Végan</label>
-                            <input type="checkbox" id="mixte" name="mixte"><label for ="mixte">Mixte</label>
-                            <input type="checkbox" id="sansgluten" name="sansgluten"><label for ="sansgluten">Sans gluten</label>
+                            <input type="checkbox" class="filtre-regime" value="classique"><label for ="classique">Classique</label>
+                            <input type="checkbox" class="filtre-regime" value="végétarien"><label for ="végétarien">Végétarien</label>
+                            <input type="checkbox" class="filtre-regime" value="vegan"><label for ="vegan">Végan</label>
+                            <input type="checkbox" class="filtre-regime" value="mixte"><label for ="mixte">Mixte</label>
+                            <input type="checkbox" class="filtre-regime" value="sansgluten"><label for ="sansgluten">Sans gluten</label>
                         </div>
                     </div>
                 </div>
@@ -119,7 +119,12 @@
                 $bddMenu->setFetchMode(PDO::FETCH_OBJ);
                 if ($resultatMenu = $bddMenu->fetch()){
                     do{
-                        echo "<div class='bloc-menu'>";
+                        echo "<div class='bloc-menu'
+                                data-prix='{$resultatMenu->prix}'
+                                data-personnes='{$resultatMenu->Nombre_minimum_de_personnes}'
+                                data-regime='".strtolower($resultatMenu->regime)."'
+                                data-allergenes='".strtolower($resultatMenu->allergene)."'
+                            >";
 
                             echo "<div class='ensemble-titre-menu'>";
                                 echo "<div class='titre-menu'>".$resultatMenu->titre."</div>";
@@ -264,7 +269,7 @@
             const percent = (value - min) / (max - min);
 
             const sliderWidth = rangePrix.offsetWidth;
-            const thumbSize = 18; // taille visuelle du thumb (ajuste si besoin)
+            const thumbSize = 18; 
 
             let position = percent * (sliderWidth - thumbSize) + thumbSize / 2;
 
@@ -313,5 +318,75 @@
         window.addEventListener("resize", updateRangePersonne);
         updateRangePersonne();
     </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+        const rangePrix = document.getElementById("rangePrix");
+        const rangeValeurPrix = document.getElementById("rangeValeurPrix");
+
+        // (optionnel) si tu as aussi un range personnes
+        const rangePersonne = document.getElementById("rangePersonne");
+        const rangeValeurPersonne = document.getElementById("rangeValeurPersonne");
+
+        const menus = Array.from(document.querySelectorAll(".bloc-menu"));
+
+        // checkboxes (optionnel) : mets class="filtre-regime" et value="vegetarien" etc.
+        const cbRegimes = Array.from(document.querySelectorAll(".filtre-regime"));
+        // checkboxes (optionnel) : mets class="filtre-allergene" et value="gluten" etc.
+        const cbAllergenes = Array.from(document.querySelectorAll(".filtre-allergene"));
+
+        function getCheckedValues(checkboxes) {
+            return checkboxes.filter(cb => cb.checked).map(cb => cb.value.toLowerCase().trim());
+        }
+
+        function appliquerFiltres() {
+            const prixMax = rangePrix ? parseInt(rangePrix.value, 10) : Infinity;
+            if (rangeValeurPrix && Number.isFinite(prixMax)) rangeValeurPrix.textContent = prixMax + " €";
+
+            const personnesMax = rangePersonne ? parseInt(rangePersonne.value, 10) : Infinity;
+            if (rangeValeurPersonne && Number.isFinite(personnesMax)) rangeValeurPersonne.textContent = personnesMax;
+
+            const regimesActifs = getCheckedValues(cbRegimes);          // ex: ["vege","sans-gluten"]
+            const allergenesExclus = getCheckedValues(cbAllergenes);    // ex: ["gluten","lactose"]
+
+            menus.forEach(menu => {
+            const prix = parseInt(menu.dataset.prix || "", 10);
+            const personnes = parseInt(menu.dataset.personnes || "", 10);
+            const regime = (menu.dataset.regime || "").toLowerCase();
+            const allergenes = (menu.dataset.allergenes || "").toLowerCase(); // texte libre OK
+
+            // filtres de base (si data manquante -> on laisse passer)
+            const okPrix = isNaN(prix) ? true : prix <= prixMax;
+            const okPersonnes = isNaN(personnes) ? true : personnes <= personnesMax;
+
+            // régime : si aucun coché => passe
+            const okRegime = regimesActifs.length === 0
+                ? true
+                : regimesActifs.includes(regime);
+
+            // allergènes : si aucun coché => passe
+            // ici : si l'utilisateur coche "gluten", on EXCLUT les menus qui contiennent "gluten"
+            const okAllergenes = allergenesExclus.length === 0
+                ? true
+                : !allergenesExclus.some(a => allergenes.includes(a));
+
+            const visible = okPrix && okPersonnes && okRegime && okAllergenes;
+            menu.style.display = visible ? "block" : "none";
+            });
+        }
+
+        // listeners ranges
+        if (rangePrix) rangePrix.addEventListener("input", appliquerFiltres);
+        if (rangePersonne) rangePersonne.addEventListener("input", appliquerFiltres);
+
+        // listeners checkboxes
+        cbRegimes.forEach(cb => cb.addEventListener("change", appliquerFiltres));
+        cbAllergenes.forEach(cb => cb.addEventListener("change", appliquerFiltres));
+
+        // init
+        appliquerFiltres();
+        });
+        </script>
+
 
 </html>
