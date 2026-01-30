@@ -519,6 +519,7 @@ section.avis{
 }
 
 .filtre-menus{
+    margin:0rem 4rem;   
     color: #6C5F53;
     font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
     font-weight: bold;
@@ -620,7 +621,7 @@ input:checked{
 .titre-page-menu{
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
+    align-items: center;
 }
 
 .valeurs-filtre{
@@ -653,7 +654,7 @@ section.liste-menu{
     flex-direction: column;
     margin:0 auto;
     max-width: 1360px;
-    padding:4rem 0;
+    padding:4rem 1rem;
 }
 
 .ensemble-titre-menu{
@@ -969,6 +970,14 @@ table.info-info th.h{
         margin: 2rem 0;
     }
 
+    h1.titre-page{
+        font-size: 4rem;
+        text-align: center;
+    }
+
+    .filtre-menus, .titre-filtre{
+        display: none;
+    }
     
     .ensemble-titre-menu{
         margin:0rem 1rem;
