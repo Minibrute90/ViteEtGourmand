@@ -764,6 +764,71 @@ button.btContenueMenu{
     font-weight:300;
 }
 
+/*style page inscription*/
+
+form.inscription{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 4rem auto;
+}
+
+h1.formulaire{
+    color: #A37C4D;
+    margin-bottom: 3rem;
+}
+
+input.saisie-info-account{
+    border:none;
+    border-radius: 2rem;
+    margin-bottom: 2rem;
+    height: 4rem;
+}
+
+input::placeholder{
+    padding:0rem 2rem;
+    font-style: italic;
+}
+
+a.bt-mdpforgot{
+    color: #B45B36;
+    font-style: italic;
+    text-decoration-line:underline;
+    letter-spacing: 0.2rem;
+    font-weight: 300;
+    padding-bottom: 2rem;
+    font-size: 1.4rem;
+}
+
+button.connexion, button.inscription{
+    border:none;
+    border-radius: 2rem;
+    margin-bottom: 2rem;
+    height: 4rem;
+    color:#E8DFD2;
+    font-style: italic;
+    font-size: 1.6rem;
+}
+
+button.connexion{
+    background-color: #bb8a23;
+}
+
+button.inscription{
+    background-color: #B45B36;
+}
+
+button.connexion:hover, button.inscription:hover{
+    background-color: #A37C4D;
+}
+
+.condition p{
+    margin:0.5rem 0rem;
+    font-style: italic;
+    color: #A37C4D;
+    font-size: 1rem;
+}
 
 
 /*style footer*/
