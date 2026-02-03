@@ -767,7 +767,7 @@ button.btContenueMenu{
 /*style page inscription*/
 
 form.inscription{
-    width: 25%;
+    width: 400px;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -775,11 +775,13 @@ form.inscription{
 }
 
 h1.formulaire{
+    margin: 3rem auto;
     color: #A37C4D;
-    margin-bottom: 3rem;
+
 }
 
 input.saisie-info-account{
+    padding-left: 2rem;
     border:none;
     border-radius: 2rem;
     margin-bottom: 2rem;
@@ -787,7 +789,6 @@ input.saisie-info-account{
 }
 
 input::placeholder{
-    padding:0rem 2rem;
     font-style: italic;
 }
 

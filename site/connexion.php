@@ -44,10 +44,10 @@
         <section class="form_connexion">
         <form class="inscription" method="post" action="page-visiteur.php">
                     <h1 class="formulaire">Connexion</h1>
-                    <input class="saisie-info-account" type="text" id="user-email" name="user-email" placeholder="Veillez saisir votre email">
-                    <input class="saisie-info-account" type="text" id="user-motdepass" name="user-motdepass" placeholder="Veillez saisir votre mot de passe">
+                    <input class="saisie-info-account" type="text" id="email" name="email" placeholder="Veillez saisir votre email">
+                    <input class="saisie-info-account" type="text" id="mdp" name="mdp" placeholder="Veillez saisir votre mot de passe">
                     <a class="bt-mdpforgot" href ="page-forgot-password.php">Mot de passe oublié?</a>
-                    <button type='sibmit' class='connexion' id="">Connexion</button>
+                    <button type='submit' class='connexion' id="">Connexion</button>
                     <button type='button' class='inscription' onclick="window.location.href='inscription.php'">inscription</button>
         </section>
     </main>

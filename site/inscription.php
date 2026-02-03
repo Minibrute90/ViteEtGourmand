@@ -42,14 +42,14 @@
     </header>
     <main>
         <section class="form_connexion">
-            <form class="inscription" method="post" action="page-visiteur.php">
+            <form class="inscription" method="post" action="inscription-ok.php">
                         <h1 class="formulaire">Inscription</h1>
-                        <input class="saisie-info-account" type="text" id="user-nom" name="user-nom" placeholder="Veillez saisir votre Nom">
-                        <input class="saisie-info-account" type="text" id="user-prenom" name="user-prenom" placeholder="Veillez saisir votre Prenom">
-                        <input class="saisie-info-account" type="tel" id="user-gsm" name="user-gsm" placeholder="Veillez saisir votre numéro de téléphone">
-                        <input class="saisie-info-account" type="email" id="user-email" name="user-email" placeholder="Veillez saisir votre adresse email">
-                        <input class="saisie-info-account" type="text" id="user-adress" name="user-adress" placeholder="Veillez saisir votre adresse postale complète">
-                        <input class="saisie-info-account" type="text" id="user-mdp" name="user-mdp" placeholder="Veillez saisir un mot de passe">
+                        <input class="saisie-info-account" type="text" id="nom" name="nom" placeholder="Veillez saisir votre Nom">
+                        <input class="saisie-info-account" type="text" id="prenom" name="prenom" placeholder="Veillez saisir votre Prenom">
+                        <input class="saisie-info-account" type="tel" id="gsm" name="gsm" placeholder="Veillez saisir votre numéro de téléphone">
+                        <input class="saisie-info-account" type="email" id="email" name="email" placeholder="Veillez saisir votre adresse email">
+                        <input class="saisie-info-account" type="text" id="adress" name="adress" placeholder="Veillez saisir votre adresse postale complète">
+                        <input class="saisie-info-account" type="text" id="mdp" name="mdp" placeholder="Veillez saisir un mot de passe">
                         <div class="condition">
                             <p>10 caractères minimum</p>
                             <p>1 chiffre minimum</p>
