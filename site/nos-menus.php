@@ -13,10 +13,7 @@
 
 </head>
 
-<?php
-    // Connexion à la base de données
-    $connexionBdd = new PDO('mysql:host=localhost;dbname=viteetgourmand;charset=utf8', 'root', '');
-?>
+<?php require __DIR__ . '/db.php'; ?>
 
 <body>
     <header>
@@ -115,6 +112,8 @@
         </div>
         <section class="liste-menu">
             <?php
+
+            
                 $bddMenu=$connexionBdd->query(" SELECT * FROM menus "); 
                 $bddMenu->setFetchMode(PDO::FETCH_OBJ);
                 if ($resultatMenu = $bddMenu->fetch()){

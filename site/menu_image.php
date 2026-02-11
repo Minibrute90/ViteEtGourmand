@@ -1,13 +1,28 @@
 <?php
+
+$host = 'arsedifvitegourm.mysql.db';
+$db   = 'arsedifvitegourm';
+$user = 'arsedifvitegourm';
+$pass = 'Vg2026Test123';
+
+try {
+    $connexionBdd = new PDO(
+        "mysql:host=$host;port=3306;dbname=$db;charset=utf8mb4",
+        $user,
+        $pass,
+        [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
+        ]
+    );
+} catch (PDOException $e) {
+    die("Erreur BDD : " . $e->getMessage());
+}
+
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 try {
-    $connexionBdd = new PDO(
-        'mysql:host=localhost;dbname=viteetgourmand;charset=utf8',
-        'root',
-        ''
-    );
     $connexionBdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $menuId = (int)($_GET['id'] ?? 0);

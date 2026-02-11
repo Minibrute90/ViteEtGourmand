@@ -13,11 +13,6 @@
 
 </head>
 
-<?php
-    // Connexion à la base de données
-    $connexionBdd = new PDO('mysql:host=localhost;dbname=viteetgourmand;charset=utf8', 'root', '');
-?>
-
 <body>
     <header>
        <img class="logo-header" src="img/logoblanc_cercle_transparent_150.png">
@@ -42,91 +37,48 @@
     </header>
     <main>
         <section>
-            <?php
-                use PHPMailer\PHPMailer\PHPMailer;
-                use PHPMailer\PHPMailer\Exception;
+                <?php
+                    require_once __DIR__ . '/db.php';
 
-                require __DIR__ . '/vendor/autoload.php';
+                    $message = null;
 
-                $message = null;
+                    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-                try {
-                    $bdd = new PDO('mysql:host=localhost;dbname=viteetgourmand;charset=utf8', 'root', '');
-                    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                } catch (Exception $e) {
-                    die('Erreur : ' . $e->getMessage());
-                }
+                        $email = $_POST['email'] ?? '';
 
-                $verifUtilisateur = $bdd->prepare("SELECT COUNT(*) FROM utilisateur WHERE email = :email");
-                $verifUtilisateur->bindValue(':email', $_POST['email'], PDO::PARAM_STR);
-                $verifUtilisateur->execute();
+                        $verifUtilisateur = $connexionBdd->prepare(
+                            "SELECT COUNT(*) FROM utilisateur WHERE email = :email"
+                        );
+                        $verifUtilisateur->bindValue(':email', $email, PDO::PARAM_STR);
+                        $verifUtilisateur->execute();
 
-                $emailExiste = (int)$verifUtilisateur->fetchColumn();
+                        $emailExiste = (int)$verifUtilisateur->fetchColumn();
 
-                if ($emailExiste === 0) {
+                        if ($emailExiste === 0) {
 
-                    $pdoStat = $bdd->prepare(
-                        "INSERT INTO utilisateur (nom, prenom, gsm, email, adress, mdp)
-                        VALUES (:nom, :prenom, :gsm, :email, :adress, :mdp)"
-                    );
+                            $pdoStat = $connexionBdd->prepare(
+                                "INSERT INTO utilisateur (nom, prenom, gsm, email, adress, mdp)
+                                VALUES (:nom, :prenom, :gsm, :email, :adress, :mdp)"
+                            );
 
-                    $pdoStat->bindValue(':nom', $_POST['nom']);
-                    $pdoStat->bindValue(':prenom', $_POST['prenom']);
-                    $pdoStat->bindValue(':gsm', $_POST['gsm']);
-                    $pdoStat->bindValue(':email', $_POST['email']);
-                    $pdoStat->bindValue(':adress', $_POST['adress']);
+                            $pdoStat->bindValue(':nom', $_POST['nom']);
+                            $pdoStat->bindValue(':prenom', $_POST['prenom']);
+                            $pdoStat->bindValue(':gsm', $_POST['gsm']);
+                            $pdoStat->bindValue(':email', $_POST['email']);
+                            $pdoStat->bindValue(':adress', $_POST['adress']);
 
-                    // ✅ Hash mot de passe
-                    $hash = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
-                    $pdoStat->bindValue(':mdp', $hash);
+                            // Hash mot de passe
+                            $hash = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
+                            $pdoStat->bindValue(':mdp', $hash);
 
-                    $pdoStat->execute();
+                            $pdoStat->execute();
 
-                    // ✅ Message inscription
-                    $message = "Inscription réussie ✅ Un email de confirmation va être envoyé.";
+                            $message = "Inscription réussie";
 
-                    // ✅ Envoi email
-                    $mail = new PHPMailer(true);
-
-                    try {
-                        $mail->isSMTP();
-                        $mail->Host       = 'smtp.laposte.net';
-                        $mail->SMTPAuth   = true;
-                        $mail->Username   = 'tonadresse@laposte.net';
-                        $mail->Password   = 'TON_MOT_DE_PASSE_LAPOSTE'; // ou mot de passe d'application si dispo
-                        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // ou ENCRYPTION_SMTPS si 465
-                        $mail->Port       = 587;
-
-                        $mail->setFrom('tonadresse@laposte.net', 'Vite & Gourmand');
-
-                        $mail->setFrom('tonmail@laposte.com', 'Vite & Gourmand');
-                        $mail->addAddress($_POST['email'], $_POST['prenom']);
-
-                        $mail->isHTML(true);
-                        $mail->Subject = "Confirmation d'inscription — Vite & Gourmand";
-                        $mail->Body = "
-                            <p>Bonjour <strong>{$_POST['prenom']}</strong>,</p>
-                            <p>Votre inscription est bien prise en compte ✅</p>
-                            <p>Bienvenue chez <strong>Vite & Gourmand</strong>.</p>
-                            <p>À très vite 🍽️</p>
-                        ";
-                        $mail->AltBody = "Bonjour {$_POST['prenom']},\n\nVotre inscription est bien prise en compte.\n\nVite & Gourmand";
-
-                        $mail->send();
-
-                        // Option : affiner message si tu veux
-                        $message = "Inscription réussie  Email de confirmation envoyé.";
-
-                    } catch (Exception $e) {
-                        // ✅ L'inscription est OK, mais le mail a échoué
-                        $message = "Inscription réussie (mais l'email n'a pas pu être envoyé)";
-                        // debug utile :
-                        // $message .= " | Erreur mail: " . $mail->ErrorInfo;
+                        } else {
+                            $message = "Cet email est déjà utilisé.";
+                        }
                     }
-
-                } else {
-                    $message = "Cet email est déjà utilisé";
-                }
                 ?>
 
             <form class="inscription" method="post" action="connexion.php">

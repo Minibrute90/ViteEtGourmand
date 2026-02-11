@@ -13,10 +13,7 @@
 
 </head>
 
-<?php
-    // Connexion à la base de données
-    $connexionBdd = new PDO('mysql:host=localhost;dbname=viteetgourmand;charset=utf8', 'root', '');
-?>
+<?php require __DIR__ . '/db.php'; ?>
 
 <body>
     <header>

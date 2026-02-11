@@ -13,10 +13,7 @@
 
 </head>
 
-<?php
-    // Connexion à la base de données
-    $connexionBdd = new PDO('mysql:host=localhost;dbname=viteetgourmand;charset=utf8', 'root', '');
-?>
+<?php require __DIR__ . '/db.php'; ?>
 
 <body>
     <header>
@@ -44,20 +41,52 @@
         <section class="form_connexion">
             <form class="inscription" method="post" action="inscription-ok.php">
                         <h1 class="formulaire">Inscription</h1>
-                        <input class="saisie-info-account" type="text" id="nom" name="nom" placeholder="Veillez saisir votre Nom">
-                        <input class="saisie-info-account" type="text" id="prenom" name="prenom" placeholder="Veillez saisir votre Prenom">
-                        <input class="saisie-info-account" type="tel" id="gsm" name="gsm" placeholder="Veillez saisir votre numéro de téléphone">
-                        <input class="saisie-info-account" type="email" id="email" name="email" placeholder="Veillez saisir votre adresse email">
-                        <input class="saisie-info-account" type="text" id="adress" name="adress" placeholder="Veillez saisir votre adresse postale complète">
-                        <input class="saisie-info-account" type="text" id="mdp" name="mdp" placeholder="Veillez saisir un mot de passe">
+                        <input class="saisie-info-account" type="text" id="nom" name="nom" placeholder="Veuillez saisir votre Nom" required>
+                        <input class="saisie-info-account" type="text" id="prenom" name="prenom" placeholder="Veuillez saisir votre Prenom" required>
+                        <input class="saisie-info-account" type="tel" id="gsm" name="gsm" placeholder="Veuillez saisir votre numéro de téléphone" required>
+                        <input class="saisie-info-account" type="email" id="email" name="email" placeholder="Veuillez saisir votre adresse email" required>
+                        <input class="saisie-info-account" type="text" id="adress" name="adress" placeholder="Veuillez saisir votre adresse postale complète" required>
+                        <input class="saisie-info-account" type="password" id="mdp" name="mdp" placeholder="Veuillez saisir un mot de passe" required>
                         <div class="condition">
                             <p>10 caractères minimum</p>
                             <p>1 chiffre minimum</p>
                             <p>1 majuscule minimum</p>
                             <p>1 caractères spécial minimum (!?_-@&)</p></br>
                         </div>
-                        <button type='submit' class='inscription' value="valider" onclick="#">inscription</button>
+                        <button type="submit" class="inscription">inscription</button>
             </form>
+
+            <?php
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+                    $nom    = trim($_POST['nom'] ?? '');
+                    $prenom = trim($_POST['prenom'] ?? '');
+                    $gsm    = trim($_POST['gsm'] ?? '');
+                    $email  = trim($_POST['email'] ?? '');
+                    $adress = trim($_POST['adress'] ?? '');
+                    $mdp    = trim($_POST['mdp'] ?? '');
+
+                    if ($nom === '' || $prenom === '' || $gsm === '' || $email === '' || $adress === '' || $mdp === '') {
+                        $message = "Tous les champs doivent être remplis.";
+                    }
+                    elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                        $message = "Adresse email invalide.";
+                    }
+                    elseif (
+                        strlen($mdp) < 10 ||
+                        !preg_match('/[A-Z]/', $mdp) ||
+                        !preg_match('/\d/', $mdp) ||
+                        !preg_match('/[!?\_\-\@\&]/', $mdp)
+                    ) {
+                        $message = "Mot de passe non conforme.";
+                    }
+                    else {
+                        // ✅ Ici seulement : suite (verif email déjà utilisé + insert)
+                        $message = "OK (validation passée)";
+                    }
+                }
+            ?>
+
         </section>
     </main>
     <footer id="info">
