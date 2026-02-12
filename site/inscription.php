@@ -38,8 +38,83 @@
        <img class="logo-header-2" src="img/logoblanc_cercle_transparent_150.png">
     </header>
     <main>
+        <?php
+            require_once __DIR__ . '/db.php';
+
+            $message = '';
+            $success = false;
+
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+                $nom    = trim($_POST['nom'] ?? '');
+                $prenom = trim($_POST['prenom'] ?? '');
+                $gsm    = trim($_POST['gsm'] ?? '');
+                $email  = trim($_POST['email'] ?? '');
+                $adress = trim($_POST['adress'] ?? '');
+                $mdp    = trim((string)($_POST['mdp'] ?? ''));
+
+                if ($nom === '' || $prenom === '' || $gsm === '' || $email === '' || $adress === '' || $mdp === '') {
+                    $message = "Tous les champs doivent être remplis.";
+                }
+                elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    $message = "Adresse email invalide.";
+                }
+                elseif (strlen($mdp) < 10) {
+                    $message = "Mot de passe non conforme : 10 caractères minimum.";
+                }
+                elseif (!preg_match('/[A-Z]/', $mdp)) {
+                    $message = "Mot de passe non conforme : au moins 1 majuscule.";
+                }
+                elseif (!preg_match('/\d/', $mdp)) {
+                    $message = "Mot de passe non conforme : au moins 1 chiffre.";
+                }
+                elseif (!preg_match('/[!?\_\-\@\&]/', $mdp)) {
+                    $message = "Mot de passe non conforme : au moins 1 caractère spécial (!?_-@&).";
+                }
+                else {
+                    $verifUtilisateur = $connexionBdd->prepare(
+                        "SELECT COUNT(*) FROM utilisateur WHERE email = :email"
+                    );
+                    $verifUtilisateur->bindValue(':email', $email, PDO::PARAM_STR);
+                    $verifUtilisateur->execute();
+
+                    $emailExiste = (int)$verifUtilisateur->fetchColumn();
+
+                    if ($emailExiste !== 0) {
+                        $message = "Cet email est déjà utilisé.";
+                    } else {
+                        // 4) Insert
+                        $pdoStat = $connexionBdd->prepare(
+                            "INSERT INTO utilisateur (nom, prenom, gsm, email, adress, mdp)
+                            VALUES (:nom, :prenom, :gsm, :email, :adress, :mdp)"
+                        );
+
+                        $hash = password_hash($mdp, PASSWORD_DEFAULT);
+
+                        $pdoStat->bindValue(':nom', $nom);
+                        $pdoStat->bindValue(':prenom', $prenom);
+                        $pdoStat->bindValue(':gsm', $gsm);
+                        $pdoStat->bindValue(':email', $email);
+                        $pdoStat->bindValue(':adress', $adress);
+                        $pdoStat->bindValue(':mdp', $hash);
+
+                        $pdoStat->execute();
+
+                        $success = true;
+                        $message = "Inscription réussie 🎉";
+                    }
+                }
+            }
+        ?>
+
+        <?php if ($message !== '') : ?>
+            <p class="message-erreur" style="font-weight:bold; color:<?= $success ? 'green' : 'red' ?>;">
+                <?= htmlspecialchars($message) ?>
+            </p>
+        <?php endif; ?>
+
         <section class="form_connexion">
-            <form class="inscription" method="post" action="inscription-ok.php">
+            <form class="inscription" method="post">
                         <h1 class="formulaire">Inscription</h1>
                         <input class="saisie-info-account" type="text" id="nom" name="nom" placeholder="Veuillez saisir votre Nom" required>
                         <input class="saisie-info-account" type="text" id="prenom" name="prenom" placeholder="Veuillez saisir votre Prenom" required>
@@ -55,38 +130,6 @@
                         </div>
                         <button type="submit" class="inscription">inscription</button>
             </form>
-
-            <?php
-                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-                    $nom    = trim($_POST['nom'] ?? '');
-                    $prenom = trim($_POST['prenom'] ?? '');
-                    $gsm    = trim($_POST['gsm'] ?? '');
-                    $email  = trim($_POST['email'] ?? '');
-                    $adress = trim($_POST['adress'] ?? '');
-                    $mdp    = trim($_POST['mdp'] ?? '');
-
-                    if ($nom === '' || $prenom === '' || $gsm === '' || $email === '' || $adress === '' || $mdp === '') {
-                        $message = "Tous les champs doivent être remplis.";
-                    }
-                    elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                        $message = "Adresse email invalide.";
-                    }
-                    elseif (
-                        strlen($mdp) < 10 ||
-                        !preg_match('/[A-Z]/', $mdp) ||
-                        !preg_match('/\d/', $mdp) ||
-                        !preg_match('/[!?\_\-\@\&]/', $mdp)
-                    ) {
-                        $message = "Mot de passe non conforme.";
-                    }
-                    else {
-                        // ✅ Ici seulement : suite (verif email déjà utilisé + insert)
-                        $message = "OK (validation passée)";
-                    }
-                }
-            ?>
-
         </section>
     </main>
     <footer id="info">

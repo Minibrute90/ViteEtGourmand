@@ -45,7 +45,7 @@
                     <input class="saisie-info-account" type="text" id="mdp" name="mdp" placeholder="Veillez saisir votre mot de passe">
                     <a class="bt-mdpforgot" href ="page-forgot-password.php">Mot de passe oublié?</a>
                     <button type='submit' class='connexion' id="">Connexion</button>
-                    <button type='button' class='inscription' onclick="window.location.href='inscription.php'">inscription</button>
+                    <div class ="redirection-inscription"><p>Pas encore inscrit?</p><a href="inscription.php">Créer un compte</a></div>
         </section>
     </main>
     <footer id="info">

@@ -40,45 +40,6 @@
                 <?php
                     require_once __DIR__ . '/db.php';
 
-                    $message = null;
-
-                    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-                        $email = $_POST['email'] ?? '';
-
-                        $verifUtilisateur = $connexionBdd->prepare(
-                            "SELECT COUNT(*) FROM utilisateur WHERE email = :email"
-                        );
-                        $verifUtilisateur->bindValue(':email', $email, PDO::PARAM_STR);
-                        $verifUtilisateur->execute();
-
-                        $emailExiste = (int)$verifUtilisateur->fetchColumn();
-
-                        if ($emailExiste === 0) {
-
-                            $pdoStat = $connexionBdd->prepare(
-                                "INSERT INTO utilisateur (nom, prenom, gsm, email, adress, mdp)
-                                VALUES (:nom, :prenom, :gsm, :email, :adress, :mdp)"
-                            );
-
-                            $pdoStat->bindValue(':nom', $_POST['nom']);
-                            $pdoStat->bindValue(':prenom', $_POST['prenom']);
-                            $pdoStat->bindValue(':gsm', $_POST['gsm']);
-                            $pdoStat->bindValue(':email', $_POST['email']);
-                            $pdoStat->bindValue(':adress', $_POST['adress']);
-
-                            // Hash mot de passe
-                            $hash = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
-                            $pdoStat->bindValue(':mdp', $hash);
-
-                            $pdoStat->execute();
-
-                            $message = "Inscription réussie";
-
-                        } else {
-                            $message = "Cet email est déjà utilisé.";
-                        }
-                    }
                 ?>
 
             <form class="inscription" method="post" action="connexion.php">

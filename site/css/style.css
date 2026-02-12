@@ -764,7 +764,7 @@ button.btContenueMenu{
     font-weight:300;
 }
 
-/*style page inscription*/
+/*style page inscription et connexion*/
 
 form.inscription{
     width: 400px;
@@ -831,6 +831,24 @@ button.connexion:hover, button.inscription:hover{
     font-size: 1rem;
 }
 
+.redirection-inscription{
+    color:#bb8a23;
+    font-size: 1.2rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.redirection-inscription a{
+    padding: 0rem 0.5rem;
+    text-decoration-line:underline;
+}
+
+.message-erreur{
+    margin-bottom: -4rem;
+    margin-top: 4rem;
+    text-align: center;
+}
 
 /*style footer*/
 
