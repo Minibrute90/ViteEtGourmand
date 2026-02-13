@@ -13,8 +13,6 @@
 
 </head>
 
-<?php require __DIR__ . '/db.php'; ?>
-
 <body>
     <header>
        <img class="logo-header" src="img/logoblanc_cercle_transparent_150.png">
@@ -40,6 +38,7 @@
     <main>
         <?php
             require_once __DIR__ . '/db.php';
+            require_once __DIR__ . '/mail.php';
 
             $message = '';
             $success = false;
@@ -83,7 +82,6 @@
                     if ($emailExiste !== 0) {
                         $message = "Cet email est déjà utilisé.";
                     } else {
-                        // 4) Insert
                         $pdoStat = $connexionBdd->prepare(
                             "INSERT INTO utilisateur (nom, prenom, gsm, email, adress, mdp)
                             VALUES (:nom, :prenom, :gsm, :email, :adress, :mdp)"
@@ -100,8 +98,16 @@
 
                         $pdoStat->execute();
 
+                        $ok = envoyerMailBienvenue($email, $prenom);
                         $success = true;
-                        $message = "Inscription réussie 🎉";
+                        if ($ok) {
+                            header("Location: inscription-ok.php");
+                            exit;
+                        } else {
+                            // inscription ok mais mail KO
+                            header("Location: inscription-ok.php?mail=ko");
+                            exit;
+                        }
                     }
                 }
             }

@@ -43,7 +43,7 @@
                     <h1 class="formulaire">Connexion</h1>
                     <input class="saisie-info-account" type="text" id="email" name="email" placeholder="Veillez saisir votre email">
                     <input class="saisie-info-account" type="text" id="mdp" name="mdp" placeholder="Veillez saisir votre mot de passe">
-                    <a class="bt-mdpforgot" href ="page-forgot-password.php">Mot de passe oublié?</a>
+                    <a class="bt-mdpforgot" href ="forgot-mdp.php">Mot de passe oublié?</a>
                     <button type='submit' class='connexion' id="">Connexion</button>
                     <div class ="redirection-inscription"><p>Pas encore inscrit?</p><a href="inscription.php">Créer un compte</a></div>
         </section>
