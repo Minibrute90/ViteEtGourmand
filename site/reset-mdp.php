@@ -40,12 +40,6 @@
                 <?php
                     require_once __DIR__ . '/db.php';
                 ?>
-                <h1 class="formulaire">Merci pour votre inscription</h1>
-                <h1 class="formulaire">Un Mail vous a été envoyez</h1>
-
-            <form class="inscription" method="post" action="connexion.php">
-                <button type="submit" class="connexion">Connexion</button>
-            </form>
         </section>
     </main>
     <footer id="info">
