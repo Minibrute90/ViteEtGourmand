@@ -9,11 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <title>Vite & Gourmand - Ma page utilisateur</title>
+    <title>Vite & Gourmand - Mot de passe perdu</title>
 
 </head>
-
-<?php require __DIR__ . '/db.php'; ?>
 
 <body>
     <header>
@@ -21,30 +19,30 @@
        <div class="nav-header">
             <ul class="nav-classic">
                 <li><a href="index.php">ACCUEIL</a></li>
-                <li ><a href="nos-menus.php">NOS MENUS</a></li>
+                <li class="active"><a href="nos-menus.php">NOS MENUS</a></li>
                 <li><a href="#info">INFOS</a></li>
-                <li class="active"><a href="connexion.php">CONNEXION</a></li>
+                <li><a href="connexion.php">CONNEXION</a></li>
                 <li><a href="contact.php">CONTACT</a></li>
             </ul>
         </div>
         <button id="boutonHamburger"><img class="picto-hamburger" src="img/picto_hamburger.png" ></button>
             <ul id="navHamburger" class="hidden">
                 <li><a href="index.php">ACCUEIL</a></li>
-                <li class="active"><a href="nos-menus">NOS MENUS</a></li>
+                <li class="active"><a href="nos-menus.php">NOS MENUS</a></li>
                 <li><a href="#info">INFOS</a></li>
-                <li class="active"><a href="connexion.php">CONNEXION</a></li>
+                <li><a href="connexion.php">CONNEXION</a></li>
                 <li><a href="contact.php">CONTACT</a></li>
             </ul>
        <img class="logo-header-2" src="img/logoblanc_cercle_transparent_150.png">
     </header>
     <main>
-        <section class="page-utilisateur">
-            <?php
+        <?php
             session_start();
+            require_once __DIR__ . '/db.php';
 
             if (!isset($_SESSION['id_utilisateur'])) {
-                header("Location: connexion.php");
-                exit();
+                header('Location: connexion.php');
+                exit;
             }
 
             $stmt = $connexionBdd->prepare("
@@ -57,27 +55,51 @@
 
             $utilisateur = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            // Sécurité : utilisateur introuvable
             if (!$utilisateur) {
                 session_destroy();
                 header('Location: connexion.php');
                 exit;
-            }
-            ?>
+        }
 
-            <h1 class="page-utilisateur">Bienvenue <?= htmlspecialchars($utilisateur['prenom']) ?></h1>
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-            <div class="bloc-info">
-                <ul class="info-utilisateur">
-                    <li class="info-utilisateur"><strong>Nom :</strong> <?= htmlspecialchars($utilisateur['nom']) ?></li>
-                    <li class="info-utilisateur"><strong>Prenom :</strong> <?= htmlspecialchars($utilisateur['prenom']) ?></li>
-                    <li class="info-utilisateur"><strong>Email :</strong> <?= htmlspecialchars($utilisateur['email']) ?></li>
-                    <li class="info-utilisateur"><strong>Téléphone :</strong> <?= htmlspecialchars($utilisateur['gsm']) ?></li>
-                    <li class="info-utilisateur"><strong>Adresse :</strong> <?= htmlspecialchars($utilisateur['adress']) ?></li>
-                </ul>
-                <a href="modifier-utilisateur.php" class="modifier">Modifier</a>
-            </div>
+            $stmt = $connexionBdd->prepare("
+                UPDATE utilisateur SET
+                    nom = :nom,
+                    prenom = :prenom,
+                    email = :email,
+                    gsm = :gsm,
+                    adress = :adress
+                WHERE id_utilisateur = :id
+            ");
+
+            $stmt->bindValue(':nom', $_POST['nom']);
+            $stmt->bindValue(':prenom', $_POST['prenom']);
+            $stmt->bindValue(':email', $_POST['email']);
+            $stmt->bindValue(':gsm', $_POST['gsm']);
+            $stmt->bindValue(':adress', $_POST['adress']);
+            $stmt->bindValue(':id', $_SESSION['id_utilisateur'], PDO::PARAM_INT);
+
+            $stmt->execute();
+
+            header('Location: page-visiteur.php');
+            exit;
+        }
+        ?>
+        <section class="form_connexion">
+            <h1 class="formulaire">Modifier mes informations</h1>
+
+            <form class="inscription" method="post">
+                <input class="saisie-info-account" type="text" name="nom" value="<?= htmlspecialchars($utilisateur['nom']) ?>" required>
+                <input class="saisie-info-account" type="text" name="prenom" value="<?= htmlspecialchars($utilisateur['prenom']) ?>" required>
+                <input class="saisie-info-account" type="email" name="email" value="<?= htmlspecialchars($utilisateur['email']) ?>" required>
+                <input class="saisie-info-account" type="text" name="gsm" value="<?= htmlspecialchars($utilisateur['gsm']) ?>" required>
+                <input class="saisie-info-account" type="text" name="adress" value="<?= htmlspecialchars($utilisateur['adress']) ?>" required>
+                <button class="inscription" type="submit">Enregistrer</button>
+            </form>
         </section>
+
+        
     </main>
     <footer id="info">
         <div class="info-entreprise">

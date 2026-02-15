@@ -858,6 +858,65 @@ textarea{
 
 }
 
+/*section page utlisateur*/
+
+section.page-utilisateur{
+    max-width: 1360px;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+h1.page-utilisateur{
+    color:#bb8a23;
+    text-decoration-line:underline;
+    letter-spacing: 0.2rem;
+}
+
+.bloc-info{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ul.info-utilisateur{
+    width: 100%;
+    padding: 2rem;
+    margin: 2rem 0;
+    background-color: #bb8a23;
+    border-radius: 2rem;
+}
+
+li.info-utilisateur{
+    color: #E8DFD2;
+    padding: 0.5rem;
+    letter-spacing: 0.2rem;
+}
+
+.modifier{
+     width: 100%;         
+    height: 4rem;
+    display: flex;         
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 2rem;
+    margin-bottom: 2rem;
+    color: #E8DFD2;
+    font-style: italic;
+    font-size: 1.6rem;
+    background-color: #B45B36;
+    text-decoration: none;  
+    
+}
+
+.modifier:hover{
+    background-color: #A37C4D;
+}
+
 
 /*style footer*/
 

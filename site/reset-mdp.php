@@ -9,12 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-<<<<<<< HEAD
-    <title>Vite & Gourmand - Nos menus</title>
-=======
     <title>Vite & Gourmand - Réinitialiser votre mot de passe</title>
->>>>>>> 7a26c3e431619c7933ef74bd4e54ed1636569175
-
 </head>
 
 <body>
@@ -40,21 +35,15 @@
        <img class="logo-header-2" src="img/logoblanc_cercle_transparent_150.png">
     </header>
     <main>
-<<<<<<< HEAD
-        <section>
-                <?php
-                    require_once __DIR__ . '/db.php';
-                ?>
-        </section>
-    </main>
-=======
-<?php
-require_once __DIR__ . '/db.php';
+            <?php
+            require_once __DIR__ . '/db.php';
+
+$message = '';
+$ok = false;
 
 $email = trim($_GET['email'] ?? '');
 $token = trim($_GET['token'] ?? '');
-$message = "";
-$ok = false;
+
 $row = null;
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($token) < 10) {
@@ -81,47 +70,58 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($token) < 10) {
     }
 }
 
-if ($_SERVER["REQUEST_METHOD"] === "POST" && $ok && $row) {
-    $mdp1 = $_POST['mdp'] ?? '';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $mdp = $_POST['mdp'] ?? '';
     $mdp2 = $_POST['mdp2'] ?? '';
 
-    if (strlen($mdp1) < 8) {
-        $message = "Mot de passe trop court (min 8).";
-    } elseif ($mdp1 !== $mdp2) {
+    if (!$ok) {
+        $message = "Lien invalide ou expiré.";
+    } elseif (strlen($mdp) < 8) {
+        $message = "Le mot de passe doit faire au moins 8 caractères.";
+    } elseif ($mdp !== $mdp2) {
         $message = "Les mots de passe ne correspondent pas.";
     } else {
-        $hash = password_hash($mdp1, PASSWORD_DEFAULT);
+        $hash = password_hash($mdp, PASSWORD_DEFAULT);
+
 
         $up = $connexionBdd->prepare("UPDATE utilisateur SET mdp = :mdp WHERE email = :email");
         $up->execute(['mdp' => $hash, 'email' => $email]);
 
-        $used = $connexionBdd->prepare("UPDATE password_resets SET used_at = NOW() WHERE id = :id");
-        $used->execute(['id' => $row['id']]);
+        $uu = $connexionBdd->prepare("UPDATE password_resets SET used_at = NOW() WHERE id = :id");
+        $uu->execute(['id' => $row['id']]);
 
-        $message = "Mot de passe modifié Vous pouvez vous connecter.";
-        $ok = false;
+        $message = "Mot de passe modifié, vous pouvez vous connecter.";
+
     }
 }
 ?>
 
-    <section class="form_connexion">
-        <?php if (!empty($message)): ?>
-            <div class="message-erreur"><?= htmlspecialchars($message) ?></div>
+<?php if ($message !== ''): ?>
+        <p class="message-erreur" style="font-weight:bold; color:<?= (str_contains($message, '✅') ? 'green' : 'red') ?>;">
+            <?= htmlspecialchars($message) ?>
+        </p>
     <?php endif; ?>
+
+
+<main>
+<section class="form-connexion">
+
+    <h1 class="formulaire">Nouveau mot de passe</h1>
+
 
     <?php if ($ok): ?>
         <form class="inscription" method="post">
-            <h1 class="formulaire">Nouveau mot de passe</h1>
-            <input class="saisie-info-account" type="password" id="mdp" name="mdp" placeholder="Veuillez saisir votre nouveau mot de passe" required>
-            <input class="saisie-info-account" type="password" id="mdp2" name="mdp2" placeholder="Veuillez saisir votre nouveau mot de passe" required>
-            <button type="submit" class="connexion">Changer le mot de passe</button>
-            <div class="redirection-inscription"><a href="connexion.php">Retour à la page de connexion</a></div>
+            <input class="saisie-info-account" type="password" name="mdp" placeholder="Nouveau mot de passe" required>
+            <input class="saisie-info-account" type="password" name="mdp2" placeholder="Confirmer le mot de passe" required>
+            <button type="submit" class="inscription">Valider</button>
         </form>
     <?php endif; ?>
 
 </section>
 </main>
->>>>>>> 7a26c3e431619c7933ef74bd4e54ed1636569175
+
+
     <footer id="info">
         <div class="info-entreprise">
             <div class="colonne-info">

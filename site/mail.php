@@ -2,9 +2,8 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require __DIR__ . '/vendor/autoload.php';
 
-$config = require __DIR__ . '/config/mail_config.php';
+require __DIR__ . '/vendor/autoload.php';
 
 function envoyerMailBienvenue(string $toEmail, string $toName): bool
 {
@@ -14,15 +13,15 @@ function envoyerMailBienvenue(string $toEmail, string $toName): bool
         $mail->CharSet = 'UTF-8';
 
         $mail->isSMTP();
-        $mail->Host       = $config['host'];
+        $mail->Host       = 'ssl0.ovh.net';
         $mail->SMTPAuth   = true;
-        $mail->Username   = $config['username'];
-        $mail->Password   = $config['password'];
-        $mail->Port       = $config['port'];
-        $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Username   = 'contact.viteetgourmand@arsediaa.com'; 
+        $mail->Password   = 'OlyElisa2312**';   
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port       = 587;
 
-        $mail->setFrom($config['username'], 'Formulaire Vite & Gourmand');
-        $mail->addAddress($config['to_email'], $config['to_name']);
+        $mail->setFrom('contact.viteetgourmand@arsediaa.com', 'Vite & Gourmand');
+        $mail->addAddress($toEmail, $toName);
 
         $mail->isHTML(true);
         $mail->Subject = 'Bienvenue chez Vite & Gourmand';
@@ -47,15 +46,15 @@ function envoyerMailResetMdp(string $toEmail, string $lien): bool
     try {
         $mail->CharSet = 'UTF-8';
         $mail->isSMTP();
-        $mail->Host       = $config['host'];
+        $mail->Host       = 'ssl0.ovh.net';
         $mail->SMTPAuth   = true;
-        $mail->Username   = $config['username'];
-        $mail->Password   = $config['password'];
-        $mail->Port       = $config['port'];
-        $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Username   = 'contact.viteetgourmand@arsediaa.com'; 
+        $mail->Password   = 'OlyElisa2312**';
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port       = 587;
 
-        $mail->setFrom($config['username'], 'Formulaire Vite & Gourmand');
-        $mail->addAddress($config['to_email'], $config['to_name']);
+        $mail->setFrom('contact.viteetgourmand@arsediaa.com', 'Vite & Gourmand');
+        $mail->addAddress($toEmail);
 
         $mail->isHTML(true);
         $mail->Subject = 'Réinitialisation de votre mot de passe';
@@ -92,7 +91,7 @@ function envoyerMailContact(string $fromEmail, string $sujet, string $contenu): 
 
     $smtpHost = 'ssl0.ovh.net';
     $smtpUser = 'contact.viteetgourmand@arsediaa.com';
-    $smtpPass =  'Dkwier2312**'; 
+    $smtpPass = 'OlyElisa2312**'; 
     $smtpPort = 587;
 
     $toEmail = 'contact.viteetgourmand@arsediaa.com';
@@ -139,9 +138,9 @@ function envoyerMailContact(string $fromEmail, string $sujet, string $contenu): 
 
         $mail->send();
 
-        return ['success' => true, 'message' => "Message envoyé. Merci, on te répond vite !"];
+        return ['success' => true, 'message' => "Message envoyé. Merci, on vous répond vite !"];
     } catch (Exception $e) {
-        return ['success' => false, 'message' => "Erreur d'envoi. Réessaie plus tard."];
+        return ['success' => false, 'message' => "Erreur d'envoi. Réessayez plus tard."];
     }
 }
 

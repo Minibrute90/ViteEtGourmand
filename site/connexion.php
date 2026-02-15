@@ -1,3 +1,34 @@
+<?php
+        ini_set('display_errors', 1);
+        error_reporting(E_ALL);
+
+        session_start();
+        require __DIR__ . '/db.php';
+
+        $error = "";
+
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $email = $_POST['email'] ?? '';
+            $mdp   = $_POST['mdp'] ?? '';
+
+            $sql = "SELECT * FROM utilisateur WHERE email = :email";
+            $stmt = $connexionBdd->prepare($sql);
+            $stmt->execute(['email' => $email]);
+            $user = $stmt->fetch();
+
+            if ($user && password_verify($mdp, $user['mdp'])) {
+                $_SESSION['id_utilisateur'] = $user['id_utilisateur'];
+                $_SESSION['email'] = $user['email'];
+                $_SESSION['email'] = $user['prenom'];
+
+                header("Location: page-visiteur.php");
+                exit;
+            } else {
+                $error = "Email ou mot de passe incorrect";
+            }
+        }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,9 +43,6 @@
     <title>Vite & Gourmand - connexion</title>
 
 </head>
-
-<?php require __DIR__ . '/db.php'; ?>
-
 <body>
     <header>
        <img class="logo-header" src="img/logoblanc_cercle_transparent_150.png">
@@ -39,13 +67,21 @@
     </header>
     <main>
         <section class="form_connexion">
-        <form class="inscription" method="post" action="page-visiteur.php">
+        <form class="inscription" method="post" action="connexion.php">
                     <h1 class="formulaire">Connexion</h1>
-                    <input class="saisie-info-account" type="text" id="email" name="email" placeholder="Veillez saisir votre email">
-                    <input class="saisie-info-account" type="text" id="mdp" name="mdp" placeholder="Veillez saisir votre mot de passe">
+
+                    <?php if (!empty($error)) : ?>
+                    <p style="color:red; text-align:center;">
+                        <?= htmlspecialchars($error) ?>
+                    </p>
+                    <?php endif; ?>
+
+                    <input class="saisie-info-account" type="text" id="email" name="email" placeholder="Veillez saisir votre email" required>
+                    <input class="saisie-info-account" type="password" id="mdp" name="mdp" placeholder="Veillez saisir votre mot de passe" required>
                     <a class="bt-mdpforgot" href ="forgot-mdp.php">Mot de passe oublié?</a>
                     <button type='submit' class='connexion' id="">Connexion</button>
                     <div class ="redirection-inscription"><p>Pas encore inscrit?</p><a href="inscription.php">Créer un compte</a></div>
+        </form>
         </section>
     </main>
     <footer id="info">
