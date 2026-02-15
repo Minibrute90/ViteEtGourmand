@@ -93,7 +93,7 @@
                 <input class="saisie-info-account" type="text" name="nom" value="<?= htmlspecialchars($utilisateur['nom']) ?>" required>
                 <input class="saisie-info-account" type="text" name="prenom" value="<?= htmlspecialchars($utilisateur['prenom']) ?>" required>
                 <input class="saisie-info-account" type="email" name="email" value="<?= htmlspecialchars($utilisateur['email']) ?>" required>
-                <input class="saisie-info-account" type="text" name="gsm" value="<?= htmlspecialchars($utilisateur['gsm']) ?>" required>
+                <input class="saisie-info-account" type="tel" name="gsm" value="<?= htmlspecialchars($utilisateur['gsm']) ?>" required>
                 <input class="saisie-info-account" type="text" name="adress" value="<?= htmlspecialchars($utilisateur['adress']) ?>" required>
                 <button class="inscription" type="submit">Enregistrer</button>
             </form>

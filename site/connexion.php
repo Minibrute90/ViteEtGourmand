@@ -1,32 +1,42 @@
 <?php
-        ini_set('display_errors', 1);
-        error_reporting(E_ALL);
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
-        session_start();
-        require __DIR__ . '/db.php';
+session_start();
+require __DIR__ . '/db.php';
 
-        $error = "";
+$error = "";
 
-        if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            $email = $_POST['email'] ?? '';
-            $mdp   = $_POST['mdp'] ?? '';
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $email = trim($_POST['email'] ?? '');
+    $mdp   = $_POST['mdp'] ?? '';
 
-            $sql = "SELECT * FROM utilisateur WHERE email = :email";
-            $stmt = $connexionBdd->prepare($sql);
-            $stmt->execute(['email' => $email]);
-            $user = $stmt->fetch();
+    $sql = "SELECT * FROM utilisateur WHERE email = :email";
+    $stmt = $connexionBdd->prepare($sql);
+    $stmt->execute([':email' => $email]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            if ($user && password_verify($mdp, $user['mdp'])) {
-                $_SESSION['id_utilisateur'] = $user['id_utilisateur'];
-                $_SESSION['email'] = $user['email'];
-                $_SESSION['email'] = $user['prenom'];
+    if ($user && password_verify($mdp, $user['mdp'])) {
 
-                header("Location: page-visiteur.php");
-                exit;
-            } else {
-                $error = "Email ou mot de passe incorrect";
-            }
+        $_SESSION['id_utilisateur'] = (int)$user['id_utilisateur'];
+        $_SESSION['email'] = $user['email'];
+        $_SESSION['prenom'] = $user['prenom']; // ✅ au lieu d'écraser email
+
+        // ✅ redirect si présent
+        $redirect = $_GET['redirect'] ?? 'page-visiteur.php';
+
+        // ✅ sécurité : pas de redirection externe
+        if (strpos($redirect, 'http') === 0) {
+            $redirect = 'page-visiteur.php';
         }
+
+        header("Location: " . $redirect);
+        exit;
+
+    } else {
+        $error = "Email ou mot de passe incorrect";
+    }
+}
 ?>
 
 <!DOCTYPE html>
