@@ -9,11 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <title>Vite & Gourmand - connexion</title>
+    <title>Vite & Gourmand - Mot de passe perdu</title>
 
 </head>
-
-<?php require __DIR__ . '/db.php'; ?>
 
 <body>
     <header>
@@ -21,16 +19,16 @@
        <div class="nav-header">
             <ul class="nav-classic">
                 <li><a href="index.php">ACCUEIL</a></li>
-                <li><a href="nos-menus.php">NOS MENUS</a></li>
+                <li class="active"><a href="nos-menus.php">NOS MENUS</a></li>
                 <li><a href="#info">INFOS</a></li>
-                <li class="active"><a href="connexion.php">CONNEXION</a></li>
+                <li><a href="connexion.php">CONNEXION</a></li>
                 <li><a href="contact.php">CONTACT</a></li>
             </ul>
         </div>
         <button id="boutonHamburger"><img class="picto-hamburger" src="img/picto_hamburger.png" ></button>
             <ul id="navHamburger" class="hidden">
                 <li><a href="index.php">ACCUEIL</a></li>
-                <li class="active"><a href="nos-menus">NOS MENUS</a></li>
+                <li class="active"><a href="nos-menus.php">NOS MENUS</a></li>
                 <li><a href="#info">INFOS</a></li>
                 <li><a href="connexion.php">CONNEXION</a></li>
                 <li><a href="contact.php">CONTACT</a></li>
@@ -38,14 +36,60 @@
        <img class="logo-header-2" src="img/logoblanc_cercle_transparent_150.png">
     </header>
     <main>
+        <?php
+
+            require_once __DIR__ . '/db.php';
+            require_once __DIR__ . '/mail.php';
+
+            $message = "";
+
+            if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                $email = trim($_POST["email"] ?? "");
+
+                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    $message = "Email invalide.";
+                } else {
+
+                    $message = "Si un compte existe, un email de réinitialisation a été envoyé.";
+
+                    $stmt = $connexionBdd->prepare("SELECT COUNT(*) FROM utilisateur WHERE email = :email");
+                    $stmt->execute(['email' => $email]);
+                    $existe = (int)$stmt->fetchColumn();
+
+                    if ($existe > 0) {
+                        $token = bin2hex(random_bytes(32));
+                        $tokenHash = password_hash($token, PASSWORD_DEFAULT);
+                        $expiresAt = (new DateTime('+30 minutes'))->format('Y-m-d H:i:s');
+
+                        $ins = $connexionBdd->prepare("
+                            INSERT INTO password_resets (email, token_hash, expires_at)
+                            VALUES (:email, :token_hash, :expires_at)
+                        ");
+                        $ins->execute([
+                            'email' => $email,
+                            'token_hash' => $tokenHash,
+                            'expires_at' => $expiresAt
+                        ]);
+
+                        $baseUrl = "https://viteetgourmand.arsediaa.com";
+                        $lien = $baseUrl . "/reset-mdp.php?email=" . urlencode($email) . "&token=" . urlencode($token);
+
+                        envoyerMailResetMdp($email, $lien);
+                    }
+                }
+            }
+        ?>
+                        <?php if (!empty($message)): ?>
+                            <div class="message-erreur"><?= htmlspecialchars($message) ?></div>
+                        <?php endif; ?>
+        
         <section class="form_connexion">
-        <form class="inscription" method="post" action="page-visiteur.php">
-                    <h1 class="formulaire">Connexion</h1>
-                    <input class="saisie-info-account" type="text" id="email" name="email" placeholder="Veillez saisir votre email">
-                    <input class="saisie-info-account" type="text" id="mdp" name="mdp" placeholder="Veillez saisir votre mot de passe">
-                    <a class="bt-mdpforgot" href ="forgot-mdp.php">Mot de passe oublié?</a>
-                    <button type='submit' class='connexion' id="">Connexion</button>
-                    <div class ="redirection-inscription"><p>Pas encore inscrit?</p><a href="inscription.php">Créer un compte</a></div>
+            <form class="inscription" method="post" action="">
+                <h1 class="formulaire">Mot de passe oublié</h1>
+                <input class="saisie-info-account" type="email" id="mdp" name="email" placeholder="Veillez saisir votre Email" required>
+                <button type='submit' class='connexion' id="">Envoyer le lien</button>
+                <div class ="redirection-inscription"><a href="connexion.php">Retour à la page de connexion</a></div>
+                </form>
         </section>
     </main>
     <footer id="info">

@@ -764,7 +764,7 @@ button.btContenueMenu{
     font-weight:300;
 }
 
-/*style page inscription et connexion*/
+/*style page inscription et connexion et contact*/
 
 form.inscription{
     width: 400px;
@@ -788,7 +788,7 @@ input.saisie-info-account{
     height: 4rem;
 }
 
-input::placeholder{
+input::placeholder, .textarea-contact{
     font-style: italic;
 }
 
@@ -849,6 +849,15 @@ button.connexion:hover, button.inscription:hover{
     margin-top: 4rem;
     text-align: center;
 }
+
+textarea{
+    border: none;
+    border-radius: 2rem;
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+
+}
+
 
 /*style footer*/
 

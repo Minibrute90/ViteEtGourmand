@@ -9,11 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <title>Vite & Gourmand - connexion</title>
+    <title>Vite & Gourmand - Contact</title>
 
 </head>
-
-<?php require __DIR__ . '/db.php'; ?>
 
 <body>
     <header>
@@ -21,9 +19,9 @@
        <div class="nav-header">
             <ul class="nav-classic">
                 <li><a href="index.php">ACCUEIL</a></li>
-                <li><a href="nos-menus.php">NOS MENUS</a></li>
+                <li class="active"><a href="nos-menus.php">NOS MENUS</a></li>
                 <li><a href="#info">INFOS</a></li>
-                <li class="active"><a href="connexion.php">CONNEXION</a></li>
+                <li><a href="connexion.php">CONNEXION</a></li>
                 <li><a href="contact.php">CONTACT</a></li>
             </ul>
         </div>
@@ -38,14 +36,40 @@
        <img class="logo-header-2" src="img/logoblanc_cercle_transparent_150.png">
     </header>
     <main>
+        <?php
+            require_once __DIR__ . '/db.php';
+            require_once __DIR__ . '/mail.php';
+
+            $message = '';
+            $success = false;
+
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $email       = $_POST['email'] ?? '';
+                $titre       = $_POST['titre'] ?? '';
+                $description = $_POST['description'] ?? '';
+
+                $result = envoyerMailContact($email, $titre, $description);
+                $success = $result['success'];
+                $message = $result['message'];
+            }
+
+           
+        ?>
+
+        <?php if ($message !== '') : ?>
+            <p class="message-erreur" style="font-weight:bold; color:<?= $success ? 'green' : 'red' ?>;">
+                <?= htmlspecialchars($message) ?>
+            </p>
+        <?php endif; ?>
+
         <section class="form_connexion">
-        <form class="inscription" method="post" action="page-visiteur.php">
-                    <h1 class="formulaire">Connexion</h1>
-                    <input class="saisie-info-account" type="text" id="email" name="email" placeholder="Veillez saisir votre email">
-                    <input class="saisie-info-account" type="text" id="mdp" name="mdp" placeholder="Veillez saisir votre mot de passe">
-                    <a class="bt-mdpforgot" href ="forgot-mdp.php">Mot de passe oublié?</a>
-                    <button type='submit' class='connexion' id="">Connexion</button>
-                    <div class ="redirection-inscription"><p>Pas encore inscrit?</p><a href="inscription.php">Créer un compte</a></div>
+            <form class="inscription" method="post">
+                        <h1 class="formulaire">Contactez-nous</h1>
+                        <input class="saisie-info-account" type="email" id="email" name="email" placeholder="Veuillez saisir votre adresse email" required>
+                        <input class="saisie-info-account" type="text" id="titre" name="titre" placeholder="Ex: demande de devis" required>
+                        <textarea class="textarea-contact" id="description" name="description" placeholder="Décrivez votre demande..." required rows="5" cols="33"></textarea>
+                        <button type="submit" class="inscription">Envoyer votre message</button>
+            </form>
         </section>
     </main>
     <footer id="info">
