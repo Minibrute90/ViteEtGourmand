@@ -1,0 +1,142 @@
+Dossier de Gestion de Projet - Vite & Gourmand
+1. Introduction
+1.1 Contexte du projet
+
+Le projet Vite & Gourmand consiste à créer un site web fonctionnel pour la gestion de menus et de commandes pour un restaurant. Ce site devra permettre aux utilisateurs de s’inscrire, se connecter, visualiser les menus, et passer des commandes personnalisées.
+
+1.2 Objectifs du projet
+
+Créer un site intuitif et sécurisé pour les utilisateurs
+
+Permettre la gestion des menus et des commandes
+
+Offrir une expérience personnalisée en fonction du budget, du nombre de personnes et des préférences alimentaires
+
+1.3 Durée du projet
+
+Début : Décembre 2025
+Fin : Février 2026
+Durée totale : 10 semaines
+
+2. Méthodologie de gestion de projet
+2.1 Méthode Agile (Scrum)
+
+Le projet utilise une approche Agile en suivant la méthode Scrum pour organiser les sprints et assurer une bonne gestion des ressources et du temps. La méthode Agile permet de s’adapter facilement aux changements et de fournir régulièrement des livrables.
+
+2.2 Outils utilisés
+
+Notion pour la documentation et la gestion des informations du projet
+
+GitHub pour le contrôle de version du code
+
+3. Phases du projet
+
+Le projet se divise en 6 phases clés :
+
+3.1 Phase 1 : Analyse et conception
+
+Dates : 1er décembre - 10 décembre
+
+Objectifs :
+
+Étudier les besoins fonctionnels du client
+
+Créer une base de données adaptée
+
+Planifier les pages du site web (menu, inscription, commande, etc.)
+
+3.2 Phase 2 : Design et identité visuelle
+
+Dates : 11 décembre - 20 décembre
+
+Objectifs :
+
+Créer l'identité visuelle du site
+
+Choisir les couleurs, typographies, et le style général
+
+Élaborer les maquettes de la page d'accueil et de la page de menus
+
+3.3 Phase 3 : Développement Front-end
+
+Dates : 21 décembre - 5 janvier
+
+Objectifs :
+
+Intégration des pages web (HTML, CSS)
+
+Création des formulaires d’inscription, de connexion et de commande
+
+Assurer la responsivité du site
+
+3.4 Phase 4 : Développement Back-end
+
+Dates : 6 janvier - 15 janvier
+
+Objectifs :
+
+Création de la base de données (utilisateurs, menus, commandes)
+
+Développement des fonctionnalités d’inscription, de connexion, et de commande
+
+Mise en place de la sécurité (gestion des sessions, mots de passe hachés)
+
+3.5 Phase 5 : Tests et corrections
+
+Dates : 16 janvier - 25 janvier
+
+Objectifs :
+
+Test de la fonctionnalité des formulaires et des interactions
+
+Correction des bugs et des erreurs d'affichage
+
+Test de sécurité et de performance
+
+3.6 Phase 6 : Finalisation et déploiement
+
+Dates : 26 janvier - 5 février
+
+Objectifs :
+
+Nettoyage du code
+
+Préparation du site pour la mise en ligne
+
+Déploiement sur un serveur de production (OVH)
+
+4. Planification du projet (Diagramme de Gantt)
+
+Le planning suivant montre les tâches principales et leur durée, avec des jalons pour suivre les progrès :
+
+Phase	Date Début	Date Fin	Durée
+Phase 1 : Analyse	1er décembre	10 décembre	10 jours
+Phase 2 : Design	11 décembre	20 décembre	10 jours
+Phase 3 : Front-end	21 décembre	5 janvier	16 jours
+Phase 4 : Back-end	6 janvier	15 janvier	10 jours
+Phase 5 : Tests		16 janvier	25 janvier	10 jours
+Phase 6 : Déploiement	26 janvier	5 février	10 jours
+5. Ressources nécessaires
+
+Humaines :
+
+Développeur Front-end : 1
+
+Développeur Back-end : 1
+
+Designer UI/UX : 1
+
+Chef de projet : 1
+
+Technologies :
+
+Front-end : HTML, CSS, JavaScript
+
+Back-end : PHP, MySQL (PDO)
+
+Base de données : MySQL
+
+Serveur : OVH
+
+
+
