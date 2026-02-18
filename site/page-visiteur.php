@@ -66,16 +66,20 @@
             ?>
 
             <h1 class="page-utilisateur">Bienvenue <?= htmlspecialchars($utilisateur['prenom']) ?></h1>
-
-            <div class="bloc-info">
-                <ul class="info-utilisateur">
-                    <li class="info-utilisateur"><strong>Nom :</strong> <?= htmlspecialchars($utilisateur['nom']) ?></li>
-                    <li class="info-utilisateur"><strong>Prenom :</strong> <?= htmlspecialchars($utilisateur['prenom']) ?></li>
-                    <li class="info-utilisateur"><strong>Email :</strong> <?= htmlspecialchars($utilisateur['email']) ?></li>
-                    <li class="info-utilisateur"><strong>Téléphone :</strong> <?= htmlspecialchars($utilisateur['gsm']) ?></li>
-                    <li class="info-utilisateur"><strong>Adresse :</strong> <?= htmlspecialchars($utilisateur['adress']) ?></li>
-                </ul>
-                <a href="modifier-utilisateur.php" class="modifier">Modifier</a>
+            <div class="column-infos">
+                <div class="bloc-info">
+                    <ul class="info-utilisateur">
+                        <li class="info-utilisateur"><strong>Nom :</strong> <?= htmlspecialchars($utilisateur['nom']) ?></li>
+                        <li class="info-utilisateur"><strong>Prenom :</strong> <?= htmlspecialchars($utilisateur['prenom']) ?></li>
+                        <li class="info-utilisateur"><strong>Email :</strong> <?= htmlspecialchars($utilisateur['email']) ?></li>
+                        <li class="info-utilisateur"><strong>Téléphone :</strong> <?= htmlspecialchars($utilisateur['gsm']) ?></li>
+                        <li class="info-utilisateur"><strong>Adresse :</strong> <?= htmlspecialchars($utilisateur['adress']) ?></li>
+                    </ul>
+                    <a href="modifier-utilisateur.php" class="modifier">Modifier</a>
+                </div>
+                <div class="historique">
+                    <h2>Historique</h2>
+                </div>
             </div>
         </section>
     </main>

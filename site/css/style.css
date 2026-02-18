@@ -869,6 +869,12 @@ section.page-utilisateur{
     margin: 0 auto;
 }
 
+.column-infos{
+    display: flex;
+    flex-direction: row;
+    margin:4rem;
+}
+
 h1.page-utilisateur{
     color:#bb8a23;
     text-decoration-line:underline;
@@ -915,6 +921,10 @@ li.info-utilisateur{
 
 .modifier:hover{
     background-color: #A37C4D;
+}
+
+.historique{
+    margin:1rem auto;
 }
 
 
@@ -1003,6 +1013,7 @@ table.info-info th.h{
         align-items: center;
     }
 
+    
     .titreh1{
         display: flex;
         flex-direction: row;
@@ -1013,6 +1024,7 @@ table.info-info th.h{
         display: flex;
         flex-direction: row;
         text-align: center;
+        margin: 0 auto;
     }
 
 
@@ -1155,6 +1167,10 @@ table.info-info th.h{
         display: flex;
         flex-direction: column;
         margin:2rem auto;
+    }
+
+    .bloc-info{
+        margin: 0 auto;
     }
 }
     
