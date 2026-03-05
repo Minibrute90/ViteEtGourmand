@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <title>Vite & Gourmand - Nos menus</title>
+    <title>Vite & Gourmand - Ma page utilisateur</title>
 
 </head>
 
@@ -21,9 +21,9 @@
        <div class="nav-header">
             <ul class="nav-classic">
                 <li><a href="index.php">ACCUEIL</a></li>
-                <li class="active"><a href="nos-menus.php">NOS MENUS</a></li>
+                <li ><a href="nos-menus.php">NOS MENUS</a></li>
                 <li><a href="#info">INFOS</a></li>
-                <li><a href="connexion.php">CONNEXION</a></li>
+                <li class="active"><a href="connexion.php">CONNEXION</a></li>
                 <li><a href="contact.php">CONTACT</a></li>
             </ul>
         </div>
@@ -32,14 +32,55 @@
                 <li><a href="index.php">ACCUEIL</a></li>
                 <li class="active"><a href="nos-menus">NOS MENUS</a></li>
                 <li><a href="#info">INFOS</a></li>
-                <li><a href="connexion.php">CONNEXION</a></li>
+                <li class="active"><a href="connexion.php">CONNEXION</a></li>
                 <li><a href="contact.php">CONTACT</a></li>
             </ul>
        <img class="logo-header-2" src="img/logoblanc_cercle_transparent_150.png">
     </header>
     <main>
-        <section>
-        
+        <section class="page-utilisateur">
+            <?php
+            session_start();
+
+            if (!isset($_SESSION['id_utilisateur'])) {
+                header("Location: connexion.php");
+                exit();
+            }
+
+            $stmt = $connexionBdd->prepare("
+                SELECT nom, prenom, email, gsm, adress
+                FROM utilisateur
+                WHERE id_utilisateur = :id
+            ");
+            $stmt->bindValue(':id', $_SESSION['id_utilisateur'], PDO::PARAM_INT);
+            $stmt->execute();
+
+            $utilisateur = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            // Sécurité : utilisateur introuvable
+            if (!$utilisateur) {
+                session_destroy();
+                header('Location: connexion.php');
+                exit;
+            }
+            ?>
+
+            <h1 class="page-utilisateur">Bienvenue <?= htmlspecialchars($utilisateur['prenom']) ?></h1>
+            <div class="column-infos">
+                <div class="bloc-info">
+                    <ul class="info-utilisateur">
+                        <li class="info-utilisateur"><strong>Nom :</strong> <?= htmlspecialchars($utilisateur['nom']) ?></li>
+                        <li class="info-utilisateur"><strong>Prenom :</strong> <?= htmlspecialchars($utilisateur['prenom']) ?></li>
+                        <li class="info-utilisateur"><strong>Email :</strong> <?= htmlspecialchars($utilisateur['email']) ?></li>
+                        <li class="info-utilisateur"><strong>Téléphone :</strong> <?= htmlspecialchars($utilisateur['gsm']) ?></li>
+                        <li class="info-utilisateur"><strong>Adresse :</strong> <?= htmlspecialchars($utilisateur['adress']) ?></li>
+                    </ul>
+                    <a href="modifier-utilisateur.php" class="modifier">Modifier</a>
+                </div>
+                <div class="historique">
+                    <h2>Historique</h2>
+                </div>
+            </div>
         </section>
     </main>
     <footer id="info">

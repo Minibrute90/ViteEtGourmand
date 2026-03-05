@@ -43,6 +43,16 @@
             $message = '';
             $success = false;
 
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $email       = $_POST['email'] ?? '';
+                $titre       = $_POST['titre'] ?? '';
+                $description = $_POST['description'] ?? '';
+
+                $result = envoyerMailContact($email, $titre, $description);
+                $success = $result['success'];
+                $message = $result['message'];
+            }
+
            
         ?>
 
@@ -57,7 +67,7 @@
                         <h1 class="formulaire">Contactez-nous</h1>
                         <input class="saisie-info-account" type="email" id="email" name="email" placeholder="Veuillez saisir votre adresse email" required>
                         <input class="saisie-info-account" type="text" id="titre" name="titre" placeholder="Ex: demande de devis" required>
-                        <textarea class="textarea-contact" id="description" name="description" placeholder="Veuillez saisir un mot de passe" required>
+                        <textarea class="textarea-contact" id="description" name="description" placeholder="Décrivez votre demande..." required rows="5" cols="33"></textarea>
                         <button type="submit" class="inscription">Envoyer votre message</button>
             </form>
         </section>

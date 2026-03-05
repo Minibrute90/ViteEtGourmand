@@ -764,7 +764,7 @@ button.btContenueMenu{
     font-weight:300;
 }
 
-/*style page inscription et connexion*/
+/*style page inscription et connexion et contact*/
 
 form.inscription{
     width: 400px;
@@ -788,7 +788,7 @@ input.saisie-info-account{
     height: 4rem;
 }
 
-input::placeholder{
+input::placeholder, .textarea-contact{
     font-style: italic;
 }
 
@@ -849,6 +849,84 @@ button.connexion:hover, button.inscription:hover{
     margin-top: 4rem;
     text-align: center;
 }
+
+textarea{
+    border: none;
+    border-radius: 2rem;
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+
+}
+
+/*section page utlisateur*/
+
+section.page-utilisateur{
+    max-width: 1360px;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.column-infos{
+    display: flex;
+    flex-direction: row;
+    margin:4rem;
+}
+
+h1.page-utilisateur{
+    color:#bb8a23;
+    text-decoration-line:underline;
+    letter-spacing: 0.2rem;
+}
+
+.bloc-info{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ul.info-utilisateur{
+    width: 100%;
+    padding: 2rem;
+    margin: 2rem 0;
+    background-color: #bb8a23;
+    border-radius: 2rem;
+}
+
+li.info-utilisateur{
+    color: #E8DFD2;
+    padding: 0.5rem;
+    letter-spacing: 0.2rem;
+}
+
+.modifier{
+     width: 100%;         
+    height: 4rem;
+    display: flex;         
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 2rem;
+    margin-bottom: 2rem;
+    color: #E8DFD2;
+    font-style: italic;
+    font-size: 1.6rem;
+    background-color: #B45B36;
+    text-decoration: none;  
+    
+}
+
+.modifier:hover{
+    background-color: #A37C4D;
+}
+
+.historique{
+    margin:1rem auto;
+}
+
 
 /*style footer*/
 
@@ -935,6 +1013,7 @@ table.info-info th.h{
         align-items: center;
     }
 
+    
     .titreh1{
         display: flex;
         flex-direction: row;
@@ -945,6 +1024,7 @@ table.info-info th.h{
         display: flex;
         flex-direction: row;
         text-align: center;
+        margin: 0 auto;
     }
 
 
@@ -1087,6 +1167,10 @@ table.info-info th.h{
         display: flex;
         flex-direction: column;
         margin:2rem auto;
+    }
+
+    .bloc-info{
+        margin: 0 auto;
     }
 }
     

@@ -13,7 +13,12 @@
 
 </head>
 
-<?php require __DIR__ . '/db.php'; ?>
+<?php require __DIR__ . '/db.php'; 
+session_start();
+
+// adapte selon ta variable de session
+$estConnecte = isset($_SESSION['id_utilisateur']); 
+?>
 
 <body>
     <header>
@@ -165,7 +170,7 @@
                                 echo "</div>";
 
                                 echo "<div class='placement-CTA-page-menu'>";
-                                    echo "<a class='CTA-page-menu' href='passerunecommande.php'>Commander</a>";
+                                   echo "<a class='CTA-page-menu js-commander' href='passerunecommande.php?menu_id={$resultatMenu->menu_id}'>Commander</a>";
                                 echo "</div>";
                             echo "</div>";
                         echo "</div>";
@@ -384,6 +389,20 @@
 
         // init
         appliquerFiltres();
+        });
+        </script>
+
+        <script>
+            const estConnecte = <?= json_encode($estConnecte) ?>;
+
+             document.querySelectorAll(".js-commander").forEach(link => {
+            link.addEventListener("click", (e) => {
+            if (!estConnecte) {
+                e.preventDefault();
+                alert("Vous devez être connecté pour passer commande.");
+                window.location.href = "connexion.php?redirect=" + encodeURIComponent(link.href);
+                }
+            });
         });
         </script>
 
